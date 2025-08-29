@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flame, Leaf, Droplets, Heart, ChevronDown, ChevronRight, Check, Instagram, MessageCircle, Phone, Mail, Sunrise, HeartHandshake, Flower2, Palette, Sparkles, Users, Target, Zap, Crown } from 'lucide-react';
+import { Flame, Leaf, Droplets, Heart, ChevronDown, ChevronRight, Check, Instagram, MessageCircle, Phone, Mail, Sunrise, HeartHandshake, Flower2, Palette, Sparkles } from 'lucide-react';
 
 function App() {
   // Функция для прокрутки к секции оплаты
@@ -76,7 +76,7 @@ function App() {
                 alt={retreatPhotos[currentImageIndex].alt}
                 className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-2xl"
               />
-              <p className="text-lg text-sage-600 mt-4">
+              <p className="text-lg text-gray-600 mt-4">
                 Immerse yourself in a sanctuary of growth and connection
               </p>
             </div>
@@ -1005,18 +1005,18 @@ function App() {
                   </h3>
                   
                   <div className="space-y-4 mb-8">
-                    <p className="text-sage-200 leading-relaxed">
-                      We're here to answer any questions about your transformational journey. Reach out through any of these channels:
+                    <p className="text-gray-300 leading-relaxed">
+                      Have questions about the retreat? Want to know if this transformative journey is right for you? We're here to support you.
                     </p>
                     
                     <div className="space-y-3">
                       <div className="flex items-center space-x-3">
                         <Mail className="w-5 h-5 text-gold-400" />
-                        <span className="text-sage-200">hello@retreat.com</span>
+                        <span className="text-gray-300">hello@retreat.com</span>
                       </div>
                       <div className="flex items-center space-x-3">
                         <Phone className="w-5 h-5 text-gold-400" />
-                        <span className="text-sage-200">+1 (555) 123-4567</span>
+                        <span className="text-gray-300">+1 (555) 123-4567</span>
                       </div>
                     </div>
                   </div>
@@ -1039,63 +1039,6 @@ function App() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Transformation Benefits Section */}
-      <section className="py-20 bg-gradient-to-br from-warm-50 to-sage-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-sage-800 mb-6">
-              What You'll Gain
-            </h2>
-            <p className="text-xl text-sage-600 leading-relaxed max-w-3xl mx-auto">
-              This retreat will transform how you see yourself and move through the world
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Heart,
-                title: "Self-Love Mastery",
-                description: "Learn to embrace and celebrate your authentic self with compassion and confidence"
-              },
-              {
-                icon: Users,
-                title: "Sisterhood Circle",
-                description: "Connect with like-minded women in a supportive, judgment-free environment"
-              },
-              {
-                icon: Sparkles,
-                title: "Inner Wisdom Activation",
-                description: "Unlock your intuitive power and learn to trust your inner guidance system"
-              },
-              {
-                icon: Target,
-                title: "Purpose Clarity",
-                description: "Discover your unique gifts and create a clear vision for your empowered future"
-              },
-              {
-                icon: Zap,
-                title: "Energy Alignment",
-                description: "Release limiting beliefs and align with your highest potential through proven techniques"
-              },
-              {
-                icon: Crown,
-                title: "Queen Mindset",
-                description: "Develop unshakeable confidence and step into your power as the queen of your life"
-              }
-            ].map((item, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-sage-100">
-                <div className="w-16 h-16 bg-gradient-to-br from-terracotta-400 to-terracotta-600 rounded-full flex items-center justify-center mb-6">
-                  <item.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-serif font-semibold text-sage-800 mb-4">{item.title}</h3>
-                <p className="text-sage-600 leading-relaxed">{item.description}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
