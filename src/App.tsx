@@ -255,10 +255,7 @@ function App() {
             5-Day Retreat in Nature • Feminine Energy • Deep Transformation
           </p>
           
-          <button 
-            onClick={scrollToPayment}
-            className="bg-amber-600/90 hover:bg-amber-700 backdrop-blur-sm text-white font-semibold px-8 sm:px-12 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-amber-400/30 shadow-lg"
-          >
+          <button className="bg-amber-600/90 hover:bg-amber-700 backdrop-blur-sm text-white font-semibold px-8 sm:px-12 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-amber-400/30 shadow-lg">
             BOOK YOUR SPOT
           </button>
         </div>
@@ -842,10 +839,7 @@ function App() {
             </div>
 
             <div className="space-y-3">
-              <button 
-                onClick={scrollToPayment}
-                className="w-full bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
-              >
+              <button className="w-full bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
                 RESERVE YOUR SPOT
               </button>
               
@@ -1034,10 +1028,7 @@ function App() {
               <p className="font-serif text-xl text-gray-800 mb-4 italic">
                 "Your journey back to yourself begins with a single step."
               </p>
-              <button 
-                onClick={scrollToPayment}
-                className="bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105"
-              >
+              <button className="bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105">
                 START YOUR TRANSFORMATION
               </button>
             </div>
