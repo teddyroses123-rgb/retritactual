@@ -747,57 +747,6 @@ function App() {
         </div>
       </section>
 
-      {/* Retreat Atmosphere Section */}
-      <section className="py-20 bg-sage-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-bold text-sage-800 mb-6">
-              Retreat Atmosphere
-            </h2>
-            <p className="text-xl text-sage-600 max-w-3xl mx-auto">
-              Glimpse into the sacred spaces where transformation unfolds
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="relative overflow-hidden rounded-2xl shadow-lg group">
-              <img 
-                src="https://i.ibb.co/r2CWXfvq/photo-8-2025-08-29-12-03-33.jpg" 
-                alt="Meditation space" 
-                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-sage-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            
-            <div className="relative overflow-hidden rounded-2xl shadow-lg group">
-              <img 
-                src="https://i.ibb.co/qMrMRzPS/photo-6-2025-08-29-12-03-33.jpg" 
-                alt="Yoga session" 
-                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-sage-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            
-            <div className="relative overflow-hidden rounded-2xl shadow-lg group">
-              <img 
-                src="https://i.ibb.co/RpN7ZjTq/photo-4-2025-08-29-12-03-33.jpg" 
-                alt="Sacred ceremony" 
-                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-sage-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            
-            <div className="relative overflow-hidden rounded-2xl shadow-lg group">
-              <img 
-                src="https://i.ibb.co/spbYZ1PF/photo-3-2025-08-29-12-03-33.jpg" 
-                alt="Nature connection" 
-                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-sage-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Gallery Section */}
       <section className="py-12 px-4 bg-gradient-to-b from-sage-900 to-gray-900 text-white">
@@ -985,6 +934,9 @@ function App() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
           </div>
 
           {/* Final CTA */}
