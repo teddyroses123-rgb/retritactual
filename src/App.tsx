@@ -49,6 +49,17 @@ function App() {
     }
   ];
 
+  const roomImages = [
+    'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg',
+    'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg',
+    'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg',
+    'https://i.ibb.co/r2LfC1HC/photo-2025-08-29-23-59-33.jpg',
+    'https://i.ibb.co/DH0fZVVv/photo-2025-08-29-23-59-36.jpg',
+    'https://i.ibb.co/8gZShPwd/photo-2025-08-29-23-59-41.jpg',
+    'https://i.ibb.co/YTVPy1w0/photo-2025-08-29-23-59-47.jpg',
+    'https://i.ibb.co/YF5D0X1q/image.png'
+  ];
+
   const PhotoCarousel = () => {
     return (
       <div className="animate-fade-in">
