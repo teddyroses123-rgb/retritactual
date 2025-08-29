@@ -2,6 +2,17 @@ import React from 'react';
 import { Flame, Leaf, Droplets, Heart, ChevronDown, ChevronRight, Check, Instagram, MessageCircle, Phone, Mail, Sunrise, HeartHandshake, Flower2, Palette, Sparkles } from 'lucide-react';
 
 function App() {
+  // Функция для плавной прокрутки к секции оплаты
+  const scrollToPayment = () => {
+    const paymentSection = document.getElementById('payment-section');
+    if (paymentSection) {
+      paymentSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   const [expandedDay, setExpandedDay] = React.useState<number | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
   const [formData, setFormData] = React.useState({
