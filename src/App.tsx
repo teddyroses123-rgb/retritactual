@@ -826,6 +826,52 @@ function App() {
         </div>
       </section>
 
+      {/* Retreat Atmosphere */}
+      <section className="py-20 bg-gradient-to-br from-sage-50 to-warm-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-sage-800 mb-6">
+              Retreat Atmosphere
+            </h2>
+            <p className="text-xl text-sage-600 max-w-3xl mx-auto">
+              Immerse yourself in a sanctuary designed for transformation, where every detail nurtures your journey to self-discovery
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-sage-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <Leaf className="w-8 h-8 text-sage-600" />
+              </div>
+              <h3 className="text-2xl font-serif font-semibold text-sage-800 mb-4 text-center">Sacred Space</h3>
+              <p className="text-sage-600 text-center leading-relaxed">
+                A carefully curated environment that honors the feminine divine, with natural elements and sacred geometry that support your inner work
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-terracotta-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <Heart className="w-8 h-8 text-terracotta-600" />
+              </div>
+              <h3 className="text-2xl font-serif font-semibold text-sage-800 mb-4 text-center">Heart-Centered Community</h3>
+              <p className="text-sage-600 text-center leading-relaxed">
+                Connect with like-minded women in a circle of trust, where vulnerability is honored and authentic connections flourish
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 md:col-span-2 lg:col-span-1">
+              <div className="w-16 h-16 bg-gold-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <Sparkles className="w-8 h-8 text-gold-600" />
+              </div>
+              <h3 className="text-2xl font-serif font-semibold text-sage-800 mb-4 text-center">Transformative Energy</h3>
+              <p className="text-sage-600 text-center leading-relaxed">
+                Experience the powerful alchemy that occurs when women gather with intention, creating a field of possibility for profound change
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section className="py-12 px-4 bg-gradient-to-b from-terracotta-50 to-gold-50 animate-fade-in">
         <div className="max-w-4xl mx-auto text-center">
