@@ -1179,15 +1179,6 @@ function App() {
                       >
                         {link.icon}
                       </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
   );
 }
 
