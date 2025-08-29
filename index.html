@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awaken the Powerful Woman Within - Women's Retreat</title>
+    
+    <!-- Preconnect для быстрой загрузки шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Debug стили для проверки видимости -->
+    <style>
+      /* Временные debug стили */
+      #root {
+        min-height: 100vh !important;
+        background: #f8f9fa !important;
+      }
+      
+      /* Убеждаемся, что контент не скрыт */
+      * {
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+      
+      /* Проверяем z-index проблемы */
+      .debug-visible {
+        z-index: 9999 !important;
+        position: relative !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="debug-visible">
+      <!-- Fallback контент для проверки -->
+      <noscript>
+        <div style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+          <h1>JavaScript Required</h1>
+          <p>This application requires JavaScript to run properly.</p>
+        </div>
+      </noscript>
+    </div>
+    
+    <!-- Debug скрипт для проверки загрузки -->
+    <script>
+      console.log('HTML loaded, DOM ready state:', document.readyState);
+      
+      // Проверяем, что элементы не удаляются
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'childList') {
+            console.log('DOM changed:', mutation);
+          }
+        });
+      });
+      
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    </script>
+    
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
