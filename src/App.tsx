@@ -817,35 +817,6 @@ function App() {
         </div>
       </section>
 
-      {/* Your Comfortable Rooms Section */}
-      <section id="comfortable-rooms" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
-              Your Comfortable Rooms
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Rest and rejuvenate in our thoughtfully designed spaces, each crafted to provide comfort and tranquility during your transformative journey.
-            </p>
-          </div>
-          
-          <div className="room-gallery">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {roomImages.map((image, index) => (
-                <div key={index} className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-                  <img 
-                    src={image} 
-                    alt={`Room ${index + 1}`}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Retreat Atmosphere Section */}
       <section className="py-8 px-4 bg-sage-900 text-white">
         <div className="max-w-5xl mx-auto">
