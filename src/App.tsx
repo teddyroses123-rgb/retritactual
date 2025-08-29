@@ -5,14 +5,6 @@ function App() {
   // Функция для прокрутки к секции оплаты
   const scrollToPayment = () => {
     const paymentSection = document.getElementById('payment-section');
-  const atmosphereImages = [
-    'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/3184293/pexels-photo-3184293.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/3184294/pexels-photo-3184294.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=800'
-  ];
 
   // Define atmosphere images for the carousel
   const atmosphereImages = [
@@ -981,8 +973,8 @@ function App() {
                 {atmosphereImages.map((image, index) => (
                   <div key={index} className="w-full flex-shrink-0">
                     <img
-                      src={image.url}
-                      alt={image.alt}
+                      src={image}
+                      alt={`Retreat atmosphere ${index + 1}`}
                       className="w-full h-96 md:h-[500px] object-cover"
                     />
                   </div>
@@ -992,13 +984,13 @@ function App() {
             
             {/* Navigation Arrows */}
             <button
-              onClick={prevImage}
+              onClick={() => setCurrentImageIndex(currentImageIndex === 0 ? atmosphereImages.length - 1 : currentImageIndex - 1)}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-sage-700 p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronRight className="w-6 h-6 rotate-180" />
             </button>
             <button
-              onClick={nextImage}
+              onClick={() => setCurrentImageIndex(currentImageIndex === atmosphereImages.length - 1 ? 0 : currentImageIndex + 1)}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-sage-700 p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
             >
               <ChevronRight className="w-6 h-6" />
@@ -1023,8 +1015,8 @@ function App() {
                 }`}
               >
                 <img
-                  src={image.url}
-                  alt={image.alt}
+                  src={image}
+                  alt={`Thumbnail ${index + 1}`}
                   className="w-full h-full object-cover"
                 />
               </button>
