@@ -137,6 +137,69 @@ function App() {
           </div>
         </section>
       </div>
+        {/* Your Guides Section */}
+        <section className="py-20 bg-warm-50">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-serif text-sage-800 mb-6">
+                Your Guides
+              </h2>
+              <p className="text-xl text-sage-600 max-w-3xl mx-auto">
+                Meet the experienced facilitators who will support your journey of self-discovery and empowerment
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-8">
+                <div className="bg-white p-8 rounded-2xl shadow-lg">
+                  <div className="flex items-center mb-6">
+                    <img 
+                      src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&h=400" 
+                      alt="Elena Rodriguez" 
+                      className="w-20 h-20 rounded-full object-cover mr-6"
+                    />
+                    <div>
+                      <h3 className="text-2xl font-serif text-sage-800 mb-2">Elena Rodriguez</h3>
+                      <p className="text-sage-600">Lead Facilitator & Life Coach</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    With over 15 years of experience in women's empowerment and spiritual guidance, 
+                    Elena creates safe spaces for profound transformation and authentic self-expression.
+                  </p>
+                </div>
+
+                <div className="bg-white p-8 rounded-2xl shadow-lg">
+                  <div className="flex items-center mb-6">
+                    <img 
+                      src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&h=400" 
+                      alt="Maya Chen" 
+                      className="w-20 h-20 rounded-full object-cover mr-6"
+                    />
+                    <div>
+                      <h3 className="text-2xl font-serif text-sage-800 mb-2">Maya Chen</h3>
+                      <p className="text-sage-600">Mindfulness & Wellness Expert</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    Maya brings ancient wisdom and modern mindfulness practices to help women 
+                    reconnect with their inner strength and cultivate lasting well-being.
+                  </p>
+                </div>
+              </div>
+
+              <div className="relative">
+                <img 
+                  src="https://images.pexels.com/photos/3184317/pexels-photo-3184317.jpeg?auto=compress&cs=tinysrgb&h=800" 
+                  alt="Retreat facilitators in nature" 
+                  className="rounded-2xl shadow-2xl w-full h-[600px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-sage-900/20 to-transparent rounded-2xl"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
     );
   };
 
