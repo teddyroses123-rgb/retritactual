@@ -255,7 +255,10 @@ function App() {
             5-Day Retreat in Nature • Feminine Energy • Deep Transformation
           </p>
           
-          <button className="bg-amber-600/90 hover:bg-amber-700 backdrop-blur-sm text-white font-semibold px-8 sm:px-12 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-amber-400/30 shadow-lg">
+          <button 
+            onClick={scrollToPayment}
+            className="bg-amber-600/90 hover:bg-amber-700 backdrop-blur-sm text-white font-semibold px-8 sm:px-12 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-amber-400/30 shadow-lg"
+          >
             BOOK YOUR SPOT
           </button>
         </div>
@@ -839,7 +842,10 @@ function App() {
             </div>
 
             <div className="space-y-3">
-              <button className="w-full bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+              <button 
+                onClick={scrollToPayment}
+                className="w-full bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+              >
                 RESERVE YOUR SPOT
               </button>
               
@@ -1030,7 +1036,7 @@ function App() {
               </p>
               <button 
                 onClick={scrollToPayment}
-                className="bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105"
               >
                 START YOUR TRANSFORMATION
               </button>
