@@ -138,53 +138,54 @@ function App() {
         </section>
       </div>
 
-      {/* Your Guides Section */}
-      <section className="py-20 bg-warm-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif text-sage-800 mb-6">
-              Your Guides
-            </h2>
-            <p className="text-xl text-sage-600 max-w-3xl mx-auto">
-              Meet the experienced facilitators who will support your journey of self-discovery and empowerment
-            </p>
-          </div>
+        {/* Your Guides Section */}
+        <section className="py-20 bg-warm-50">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-serif text-sage-800 mb-6">
+                Your Guides
+              </h2>
+              <p className="text-xl text-sage-600 max-w-3xl mx-auto">
+                Meet the experienced facilitators who will support your journey of self-discovery and empowerment
+              </p>
+            </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="bg-white p-8 rounded-2xl shadow-lg">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-sage-100 rounded-full flex items-center justify-center mr-4">
-                    <Heart className="w-8 h-8 text-sage-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-serif text-sage-800">Elena Rodriguez</h3>
-                    <p className="text-sage-600">Lead Facilitator & Life Coach</p>
-                  </div>
+            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+              <div className="text-center">
+                <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden shadow-lg">
+                  <img 
+                    src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&h=400" 
+                    alt="Sarah Chen - Lead Facilitator"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <p className="text-gray-700 leading-relaxed">
-                  With over 15 years of experience in women's empowerment and spiritual guidance, 
-                  Elena creates safe spaces for profound transformation and authentic self-expression.
+                <h3 className="text-2xl font-serif text-sage-800 mb-2">Sarah Chen</h3>
+                <p className="text-sage-600 mb-4 font-medium">Lead Facilitator & Life Coach</p>
+                <p className="text-sage-700 leading-relaxed">
+                  With over 15 years of experience in women's empowerment and mindfulness practices, 
+                  Sarah creates safe spaces for profound transformation and authentic self-expression.
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-2xl shadow-lg">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-terracotta-100 rounded-full flex items-center justify-center mr-4">
-                    <Sparkles className="w-8 h-8 text-terracotta-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-serif text-sage-800">Maya Chen</h3>
-                    <p className="text-sage-600">Mindfulness & Meditation Expert</p>
-                  </div>
+              <div className="text-center">
+                <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden shadow-lg">
+                  <img 
+                    src="https://images.pexels.com/photos/3184288/pexels-photo-3184288.jpeg?auto=compress&cs=tinysrgb&h=400" 
+                    alt="Maya Rodriguez - Wellness Expert"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <p className="text-gray-700 leading-relaxed">
-                  A certified meditation teacher and wellness practitioner, Maya brings ancient wisdom 
-                  and modern techniques to help you connect with your inner strength and clarity.
+                <h3 className="text-2xl font-serif text-sage-800 mb-2">Maya Rodriguez</h3>
+                <p className="text-sage-600 mb-4 font-medium">Wellness Expert & Yoga Instructor</p>
+                <p className="text-sage-700 leading-relaxed">
+                  Maya brings ancient wisdom and modern wellness practices together, guiding women 
+                  to reconnect with their inner strength through movement, breath, and mindful living.
                 </p>
               </div>
             </div>
-
+          </div>
+        </section>
+      </div>
             <div className="relative">
               <img 
                 src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&h=800" 
