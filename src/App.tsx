@@ -778,7 +778,7 @@ function App() {
       </section>
 
       {/* Retreat Atmosphere Section */}
-      <section className="py-12 px-4 bg-sage-900 text-white relative overflow-hidden">
+      <section className="py-6 px-4 bg-sage-900 text-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/4 left-1/4 w-24 h-24 border border-gold-500 rounded-full"></div>
@@ -786,83 +786,83 @@ function App() {
         </div>
 
         <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center mb-10 animate-fade-in">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
+          <div className="text-center mb-6 animate-fade-in">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">
               Retreat Atmosphere
             </h2>
-            <p className="text-lg text-gray-200 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base text-gray-200 leading-relaxed max-w-xl mx-auto">
               Glimpse into the sacred spaces where transformation unfolds
             </p>
           </div>
 
           {/* Photo Gallery */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 animate-fade-in">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 animate-fade-in">
             {/* Large featured image */}
-            <div className="md:col-span-2 lg:col-span-2 lg:row-span-2">
-              <div className="rounded-2xl overflow-hidden shadow-2xl h-full min-h-[300px] lg:min-h-[400px]">
+            <div className="col-span-2 md:col-span-2 md:row-span-2">
+              <div className="rounded-xl overflow-hidden shadow-xl h-full min-h-[200px] md:min-h-[250px]">
                 <img 
                   src="https://i.ibb.co/r2CWXfvq/photo-8-2025-08-29-12-03-33.jpg"
                   alt="Sacred retreat space"
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </div>
 
             {/* Smaller images */}
-            <div className="rounded-2xl overflow-hidden shadow-xl">
+            <div className="rounded-xl overflow-hidden shadow-lg">
               <img 
                 src="https://i.ibb.co/qMrMRzPS/photo-6-2025-08-29-12-03-33.jpg"
                 alt="Meditation space"
-                className="w-full h-48 lg:h-48 object-cover hover:scale-110 transition-transform duration-700"
+                className="w-full h-24 md:h-32 object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
 
-            <div className="rounded-2xl overflow-hidden shadow-xl">
+            <div className="rounded-xl overflow-hidden shadow-lg">
               <img 
                 src="https://i.ibb.co/RpN7ZjTq/photo-4-2025-08-29-12-03-33.jpg"
                 alt="Ceremony preparation"
-                className="w-full h-48 lg:h-48 object-cover hover:scale-110 transition-transform duration-700"
+                className="w-full h-24 md:h-32 object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
 
-            <div className="rounded-2xl overflow-hidden shadow-xl">
+            <div className="rounded-xl overflow-hidden shadow-lg">
               <img 
                 src="https://i.ibb.co/spbYZ1PF/photo-3-2025-08-29-12-03-33.jpg"
                 alt="Sacred gathering"
-                className="w-full h-48 object-cover hover:scale-110 transition-transform duration-700"
+                className="w-full h-24 md:h-32 object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
 
-            <div className="rounded-2xl overflow-hidden shadow-xl">
+            <div className="rounded-xl overflow-hidden shadow-lg">
               <img 
                 src="https://i.ibb.co/gbQKNwSF/photo-2-2025-08-29-12-03-33.jpg"
                 alt="Transformation space"
-                className="w-full h-48 object-cover hover:scale-110 transition-transform duration-700"
+                className="w-full h-24 md:h-32 object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
 
-            <div className="rounded-2xl overflow-hidden shadow-xl">
+            <div className="rounded-xl overflow-hidden shadow-lg">
               <img 
                 src="https://i.ibb.co/gZK29y4D/photo-1-2025-08-29-12-03-33.jpg"
                 alt="Sacred circle"
-                className="w-full h-48 object-cover hover:scale-110 transition-transform duration-700"
+                className="w-full h-24 md:h-32 object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
 
           {/* Testimonial */}
-          <div className="mt-12 text-center animate-slide-up">
-            <div className="bg-sage-800/50 backdrop-blur-sm rounded-3xl p-6 border border-sage-700 max-w-4xl mx-auto">
-              <blockquote className="font-serif text-xl md:text-2xl italic text-gold-200 mb-4 leading-relaxed">
+          <div className="mt-6 text-center animate-slide-up">
+            <div className="bg-sage-800/50 backdrop-blur-sm rounded-2xl p-4 border border-sage-700 max-w-2xl mx-auto">
+              <blockquote className="font-serif text-base md:text-lg italic text-gold-200 mb-3 leading-relaxed">
                 "This retreat didn't just change my life—it gave me back to myself. I found my voice, my power, and my sacred feminine essence."
               </blockquote>
-              <div className="flex items-center justify-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-gold-400 to-terracotta-400 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">S</span>
+              <div className="flex items-center justify-center space-x-2">
+                <div className="w-8 h-8 bg-gradient-to-br from-gold-400 to-terracotta-400 rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">S</span>
                 </div>
                 <div className="text-left">
-                  <p className="text-gold-300 font-semibold">Sarah M.</p>
-                  <p className="text-gray-300 text-sm">Previous Retreat Participant</p>
+                  <p className="text-gold-300 font-semibold text-sm">Sarah M.</p>
+                  <p className="text-gray-300 text-xs">Previous Retreat Participant</p>
                 </div>
               </div>
             </div>
