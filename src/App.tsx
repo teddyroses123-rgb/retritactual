@@ -103,12 +103,6 @@ function App() {
     "Personal transformation guidance"
   ];
 
-  const images = [
-    "https://i.ibb.co/V00mmVPB/photo-2025-08-29-00-05-25.jpg",
-    "https://i.ibb.co/BVWtVJg3/photo-2025-08-29-00-05-31.jpg",
-    "https://i.ibb.co/Sw0cwrCC/photo-2025-08-29-00-05-34.jpg"
-  ];
-
   const socialLinks = [
     { icon: <Instagram className="w-6 h-6" />, href: "#", label: "Instagram" },
     { icon: <MessageCircle className="w-6 h-6" />, href: "#", label: "Telegram" },
@@ -616,7 +610,6 @@ function App() {
             </div>
           </div>
 
-          {/* Accommodation & Location */}
           {/* Hotel Accommodation Photos */}
           <div className="mb-12 animate-fade-in">
             <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-6 text-center">
@@ -678,6 +671,43 @@ function App() {
                       <h4 className="font-semibold text-gray-900 mb-1">Nature Connection</h4>
                       <p className="text-gray-700 text-sm">Surrounded by gardens and natural beauty to enhance your healing journey</p>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Location Info */}
+            <div className="animate-fade-in">
+              <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-6">
+                Beautiful Location
+              </h3>
+              
+              <div className="bg-sage-100 rounded-3xl p-6">
+                <div className="space-y-4">
+                  <p className="text-gray-700 leading-relaxed">
+                    Our retreat center is nestled in a peaceful natural setting, providing the perfect backdrop for your transformation journey.
+                  </p>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-terracotta-500 rounded-full"></div>
+                      <span className="text-gray-700 text-sm">Surrounded by lush gardens and natural beauty</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-sage-500 rounded-full"></div>
+                      <span className="text-gray-700 text-sm">Quiet spaces for reflection and meditation</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-gold-500 rounded-full"></div>
+                      <span className="text-gray-700 text-sm">Sacred fire ceremony spaces</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Pricing Section */}
       <section className="py-12 px-4 bg-gradient-to-b from-terracotta-50 to-gold-50">
@@ -742,77 +772,6 @@ function App() {
               </div>
               <h3 className="font-serif text-lg font-semibold text-gray-900 mb-2">Lifetime Support</h3>
               <p className="text-gray-600 text-sm">Continued guidance after retreat</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* Gallery Section */}
-      <section className="py-12 px-4 bg-gradient-to-b from-sage-900 to-gray-900 text-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10 animate-fade-in">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
-              Retreat Atmosphere
-            </h2>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              Glimpse into the sacred spaces where transformation unfolds
-            </p>
-          </div>
-
-          {/* Main Gallery Image */}
-          <div className="mb-8 animate-fade-in">
-            <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <img 
-                src="https://i.ibb.co/W4V5ZR8P/3.png"
-                alt="Sacred fire ceremony atmosphere"
-                className="w-full h-80 object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Secondary Images Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <div className="rounded-2xl overflow-hidden shadow-lg animate-fade-in">
-              <img 
-                src="https://i.ibb.co/F4zxgsRw/photo-5-2025-08-29-12-03-33.jpg"
-                alt="Women in supportive circle"
-                className="w-full h-48 object-cover hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            <div className="rounded-2xl overflow-hidden shadow-lg animate-fade-in" style={{animationDelay: '0.2s'}}>
-              <img 
-                src="https://i.ibb.co/84nHzHrg/A-warm-intimate-mom.png"
-                alt="Nourishing meals and care"
-                className="w-full h-48 object-cover hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            <div className="rounded-2xl overflow-hidden shadow-lg animate-fade-in" style={{animationDelay: '0.4s'}}>
-              <img 
-                src="https://i.ibb.co/T3HM4t4/image.png"
-                alt="Yana - your guide"
-                className="w-full h-48 object-cover hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-          </div>
-
-          {/* Testimonial Section */}
-          <div className="mt-12 text-center animate-slide-up">
-            <div className="bg-sage-800/50 rounded-3xl p-6 md:p-8 backdrop-blur-sm border border-sage-700">
-              <blockquote className="font-serif text-xl md:text-2xl italic text-gold-300 mb-4 leading-relaxed">
-                "This retreat didn't just change my life—it gave me back to myself. I found my voice, my power, and my sacred feminine essence."
-              </blockquote>
-              <div className="flex items-center justify-center space-x-3">
-                <img 
-                  src="https://i.ibb.co/T3HM4t4/image.png"
-                  alt="Sarah testimonial"
-                  className="w-10 h-10 rounded-full object-cover"
-                />
-                <div className="text-left">
-                  <p className="text-white font-medium text-sm">Sarah M.</p>
-                  <p className="text-gray-300 text-sm">Previous Retreat Participant</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -934,9 +893,6 @@ function App() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
           </div>
 
           {/* Final CTA */}
