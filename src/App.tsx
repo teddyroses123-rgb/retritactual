@@ -798,6 +798,33 @@ function App() {
         </div>
       </section>
 
+      {/* Retreat Atmosphere Section */}
+      <section className="py-8 px-4 bg-sage-900 text-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold mb-3">
+              Retreat Atmosphere
+            </h2>
+            <p className="text-base text-gray-200">
+              Glimpse into the sacred spaces where transformation unfolds
+            </p>
+          </div>
+
+          {/* Photo Carousel */}
+          <PhotoCarousel />
+
+          {/* Testimonial */}
+          <div className="text-center mt-8">
+            <div className="bg-sage-800/50 rounded-xl p-6 max-w-3xl mx-auto">
+              <p className="font-serif text-base italic text-gold-200 mb-3">
+                "This retreat gave me back to myself. I found my voice and my sacred feminine essence."
+              </p>
+              <p className="text-gold-300 text-sm">— Sarah M., Previous Participant</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section className="py-12 px-4 bg-gradient-to-b from-terracotta-50 to-gold-50">
         <div className="max-w-4xl mx-auto text-center">
@@ -861,33 +888,6 @@ function App() {
               </div>
               <h3 className="font-serif text-lg font-semibold text-gray-900 mb-2">Lifetime Support</h3>
               <p className="text-gray-600 text-sm">Continued guidance after retreat</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Retreat Atmosphere Section */}
-      <section className="py-8 px-4 bg-sage-900 text-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold mb-3">
-              Retreat Atmosphere
-            </h2>
-            <p className="text-base text-gray-200">
-              Glimpse into the sacred spaces where transformation unfolds
-            </p>
-          </div>
-
-          {/* Photo Carousel */}
-          <PhotoCarousel />
-
-          {/* Testimonial */}
-          <div className="text-center mt-8">
-            <div className="bg-sage-800/50 rounded-xl p-6 max-w-3xl mx-auto">
-              <p className="font-serif text-base italic text-gold-200 mb-3">
-                "This retreat gave me back to myself. I found my voice and my sacred feminine essence."
-              </p>
-              <p className="text-gold-300 text-sm">— Sarah M., Previous Participant</p>
             </div>
           </div>
         </div>
