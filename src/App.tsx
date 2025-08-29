@@ -1,589 +1,1075 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Heart, 
-  Sparkles, 
-  Calendar, 
-  MapPin, 
-  Users, 
-  Star,
-  Phone,
-  Mail,
-  Instagram,
-  Facebook,
-  Menu,
-  X,
-  Flower2,
-  Sun,
-  Moon,
-  Leaf
-} from 'lucide-react';
+import React from 'react';
+import { Flame, Leaf, Droplets, Heart, ChevronDown, ChevronRight, Check, Instagram, MessageCircle, Phone, Mail, Sunrise, HeartHandshake, Flower2, Palette, Sparkles } from 'lucide-react';
 
-const App = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState({});
+function App() {
+  const [expandedDay, setExpandedDay] = React.useState<number | null>(null);
+  const [formData, setFormData] = React.useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(prev => ({
-              ...prev,
-              [entry.target.id]: true
-            }));
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const elements = document.querySelectorAll('[id]');
-    elements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
   };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const features = [
+    {
+      icon: <Flame className="w-8 h-8 text-terracotta-500" />,
+      text: "Let go of the past"
+    },
+    {
+      icon: <Leaf className="w-8 h-8 text-sage-500" />,
+      text: "Find balance and softness"
+    },
+    {
+      icon: <Droplets className="w-8 h-8 text-blue-400" />,
+      text: "Dive deep into yourself"
+    },
+    {
+      icon: <Heart className="w-8 h-8 text-rose-400" />,
+      text: "Connect with your feminine power"
+    }
+  ];
+
+  const instructors = [
+    {
+      name: "Yana",
+      image: "https://i.ibb.co/T3HM4t4/image.png",
+      specialty: "Holistic Practitioner • Yoga • Meditation • Shadow Work",
+      quote: "I returned to myself — now I guide others.",
+      description: "With over a decade of experience in holistic healing, Yana specializes in shadow work integration and feminine embodiment practices."
+    },
+    {
+      name: "Irina",
+      image: "https://i.ibb.co/qY3YgzNh/photo-2025-08-29-15-55-18.jpg",
+      specialty: "Felt Artist • Nature-Inspired Clothing • Creative Expression",
+      quote: "I am crazy about FELT!",
+      description: "Irina brings the magic of creative expression through natural materials, teaching women to honor their creativity and craft their own sacred objects."
+    }
+  ];
+
+  const schedule = [
+    {
+      day: 1,
+      icon: <Sunrise className="w-5 h-5" />,
+      title: "Sacred Arrival",
+      activities: ["Cacao ceremony welcome", "Intention setting ritual", "Community dinner", "Evening meditation"]
+    },
+    {
+      day: 2,
+      icon: <HeartHandshake className="w-5 h-5" />,
+      title: "Opening the Heart",
+      activities: ["Hip-opening yoga flow", "Inner child healing workshop", "Mirror work session", "Nature walk meditation"]
+    },
+    {
+      day: 3,
+      icon: <Flower2 className="w-5 h-5" />,
+      title: "Embodied Feminine",
+      activities: ["Cacao dance celebration", "Yoni steam ceremony", "Breast massage workshop", "Yoga nidra healing", "Fiber art & color therapy (3 hours)"]
+    },
+    {
+      day: 4,
+      icon: <Palette className="w-5 h-5" />,
+      title: "Creative Expression",
+      activities: ["Felt crafting with Irina", "Voice liberation circle", "Fire ceremony preparation", "Sisterhood sharing", "Fiber art & color therapy (3 hours)", "BONUS: Professional photoshoot (2 hours)"]
+    },
+    {
+      day: 5,
+      icon: <Sparkles className="w-5 h-5" />,
+      title: "Integration & Release",
+      activities: ["Morning sun salutations", "Final fire ceremony", "Gratitude circle", "Closing feast", "Fiber art & color therapy (3 hours)", "BONUS: Professional photoshoot (2 hours)"]
+    }
+  ];
+
+  const inclusions = [
+    "5 nights accommodation in nature setting",
+    "All daily meals (breakfast, lunch, dinner)",
+    "Sacred ceremonies and healing workshops",
+    "Yoga and meditation sessions",
+    "Fire ceremony and Blue Lotus ritual",
+    "Creative workshops with felt and crafts",
+    "Fiber art & color therapy sessions (9 hours total)",
+    "Professional photoshoot sessions (4 hours total)",
+    "Evening activities and sisterhood circles",
+    "Personal transformation guidance"
+  ];
+
+  const images = [
+    "https://i.ibb.co/V00mmVPB/photo-2025-08-29-00-05-25.jpg",
+    "https://i.ibb.co/BVWtVJg3/photo-2025-08-29-00-05-31.jpg",
+    "https://i.ibb.co/Sw0cwrCC/photo-2025-08-29-00-05-34.jpg"
+  ];
+
+  const socialLinks = [
+    { icon: <Instagram className="w-6 h-6" />, href: "#", label: "Instagram" },
+    { icon: <MessageCircle className="w-6 h-6" />, href: "#", label: "Telegram" },
+    { icon: <Phone className="w-6 h-6" />, href: "#", label: "WhatsApp" },
+    { icon: <Mail className="w-6 h-6" />, href: "#", label: "Email" }
+  ];
 
   return (
     <div className="min-h-screen bg-warm-50">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
-              <Flower2 className="w-8 h-8 text-sage-600" />
-              <span className="font-serif text-xl font-semibold text-sage-800">Sacred Feminine</span>
-            </div>
-            
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <button onClick={() => scrollToSection('about')} className="text-sage-700 hover:text-sage-900 transition-colors">About</button>
-              <button onClick={() => scrollToSection('program')} className="text-sage-700 hover:text-sage-900 transition-colors">Program</button>
-              <button onClick={() => scrollToSection('location')} className="text-sage-700 hover:text-sage-900 transition-colors">Location</button>
-              <button onClick={() => scrollToSection('atmosphere')} className="text-sage-700 hover:text-sage-900 transition-colors">Atmosphere</button>
-              <button onClick={() => scrollToSection('contact')} className="bg-sage-600 text-white px-6 py-2 rounded-full hover:bg-sage-700 transition-colors">Join Us</button>
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-sage-700 hover:text-sage-900"
-              >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-sage-100">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              <button onClick={() => scrollToSection('about')} className="block px-3 py-2 text-sage-700 hover:text-sage-900 w-full text-left">About</button>
-              <button onClick={() => scrollToSection('program')} className="block px-3 py-2 text-sage-700 hover:text-sage-900 w-full text-left">Program</button>
-              <button onClick={() => scrollToSection('location')} className="block px-3 py-2 text-sage-700 hover:text-sage-900 w-full text-left">Location</button>
-              <button onClick={() => scrollToSection('atmosphere')} className="block px-3 py-2 text-sage-700 hover:text-sage-900 w-full text-left">Atmosphere</button>
-              <button onClick={() => scrollToSection('contact')} className="block px-3 py-2 bg-sage-600 text-white rounded-lg mx-3 text-center">Join Us</button>
-            </div>
-          </div>
-        )}
-      </nav>
-
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 hero-bg"
-          style={{
-            backgroundImage: 'url("https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-warm-50">
+        {/* Fire Ceremony Background */}
+        <div className="absolute inset-0">
+          {/* Main background image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('https://i.ibb.co/Ldz215YJ/image.png')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center center'
+            }}
+          />
+          
+          {/* Responsive background adjustments */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
+          
+          {/* Fire glow overlay to enhance the atmosphere */}
+          <div className="absolute inset-0 bg-gradient-radial from-amber-600/20 via-transparent to-transparent"></div>
+          
+          {/* Subtle particles effect */}
+          <div className="absolute inset-0">
+            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-amber-400 rounded-full opacity-60 animate-pulse"></div>
+            <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-orange-300 rounded-full opacity-40 animate-pulse" style={{animationDelay: '1s'}}></div>
+            <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-yellow-400 rounded-full opacity-50 animate-pulse" style={{animationDelay: '2s'}}></div>
+            <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-amber-300 rounded-full opacity-30 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+          </div>
         </div>
         
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <div className="animate-fade-in">
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              Awaken the Powerful
-              <span className="block text-gold-400">Woman Within</span>
-            </h1>
-            <p className="text-xl sm:text-2xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-              A transformative 3-day retreat to reconnect with your sacred feminine essence and unleash your inner goddess
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="bg-gold-500 hover:bg-gold-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                Reserve Your Sacred Space
-              </button>
-              <button 
-                onClick={() => scrollToSection('program')}
-                className="border-2 border-white text-white hover:bg-white hover:text-sage-800 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
-              >
-                Discover the Journey
-              </button>
-            </div>
-          </div>
+        {/* Content */}
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto animate-fade-in">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-6 tracking-wide text-white drop-shadow-2xl">
+            AWAKEN
+            <br />
+            THE POWERFUL
+            <br />
+            WOMAN WITHIN
+          </h1>
+          
+          <p className="text-lg sm:text-xl md:text-2xl font-light mb-12 leading-relaxed text-amber-100/90 drop-shadow-lg max-w-3xl mx-auto">
+            5-Day Retreat in Nature • Feminine Energy • Deep Transformation
+          </p>
+          
+          <button className="bg-amber-600/90 hover:bg-amber-700 backdrop-blur-sm text-white font-semibold px-8 sm:px-12 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-amber-400/30 shadow-lg">
+            BOOK YOUR SPOT
+          </button>
         </div>
 
-        {/* Floating elements */}
-        <div className="absolute top-20 left-10 animate-float">
-          <Sparkles className="w-8 h-8 text-gold-400/60" />
-        </div>
-        <div className="absolute bottom-32 right-16 animate-float" style={{ animationDelay: '1s' }}>
-          <Heart className="w-6 h-6 text-terracotta-400/60" />
-        </div>
-        <div className="absolute top-1/3 right-8 animate-float" style={{ animationDelay: '2s' }}>
-          <Leaf className="w-10 h-10 text-sage-400/60" />
+        {/* Floating Elements */}
+        <div className="absolute bottom-6 sm:bottom-12 left-1/2 transform -translate-x-1/2 text-amber-200 animate-float">
+          <div className="w-6 h-10 border-2 border-amber-200 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-amber-200 rounded-full mt-2 animate-pulse"></div>
+          </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 px-4 bg-warm-50">
+        <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className={`${isVisible.about ? 'animate-slide-up' : 'opacity-0'}`}>
-              <h2 className="font-serif text-4xl lg:text-5xl font-bold text-sage-800 mb-6">
-                Your Sacred Journey Awaits
+            {/* Text Content */}
+            <div className="animate-slide-up">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                This retreat is for the woman ready to awaken
               </h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                In our fast-paced world, we often lose touch with our authentic selves. This retreat is a sacred invitation to pause, breathe, and reconnect with the powerful feminine energy that resides within you.
-              </p>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                Through ancient wisdom practices, mindful movement, and deep sisterhood connections, you'll rediscover your inner strength, creativity, and intuitive power.
-              </p>
               
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-12 h-12 bg-sage-100 rounded-full flex items-center justify-center">
-                    <Heart className="w-6 h-6 text-sage-600" />
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                Step into a sacred space where transformation meets nature's embrace. This retreat is designed for women who feel the call to reconnect with their authentic power, release what no longer serves them, and awaken the feminine wisdom that lies within.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {features.map((feature, index) => (
+                  <div 
+                    key={index}
+                    className="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/50 transition-colors duration-300"
+                  >
+                    <div className="flex-shrink-0">
+                      {feature.icon}
+                    </div>
+                    <span className="text-gray-800 font-medium">{feature.text}</span>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-sage-800 mb-1">Heart-Centered Healing</h3>
-                    <p className="text-gray-600 text-sm">Release what no longer serves you</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-12 h-12 bg-terracotta-100 rounded-full flex items-center justify-center">
-                    <Sparkles className="w-6 h-6 text-terracotta-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-sage-800 mb-1">Creative Awakening</h3>
-                    <p className="text-gray-600 text-sm">Unlock your artistic expression</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gold-100 rounded-full flex items-center justify-center">
-                    <Users className="w-6 h-6 text-gold-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-sage-800 mb-1">Sacred Sisterhood</h3>
-                    <p className="text-gray-600 text-sm">Connect with like-minded souls</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-12 h-12 bg-sage-100 rounded-full flex items-center justify-center">
-                    <Leaf className="w-6 h-6 text-sage-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-sage-800 mb-1">Nature Connection</h3>
-                    <p className="text-gray-600 text-sm">Ground yourself in natural beauty</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
-            
-            <div className={`${isVisible.about ? 'animate-fade-in' : 'opacity-0'} relative`}>
-              <div className="relative">
+
+            {/* Image */}
+            <div className="relative animate-fade-in">
+              <div className="rounded-3xl overflow-hidden shadow-2xl h-[500px]">
                 <img 
-                  src="https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop" 
-                  alt="Woman in meditation" 
-                  className="rounded-2xl shadow-2xl w-full h-[600px] object-cover"
+                  src="https://i.ibb.co/F4zxgsRw/photo-5-2025-08-29-12-03-33.jpg"
+                  alt="Women in circle meditation in nature"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gold-400 rounded-full flex items-center justify-center shadow-lg">
-                  <Sun className="w-12 h-12 text-white" />
+              </div>
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gold-500 rounded-full opacity-20 animate-float"></div>
+              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-sage-500 rounded-full opacity-30 animate-float" style={{animationDelay: '1s'}}></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Fire Ceremony Section */}
+      <section className="py-12 px-4 bg-sage-900 text-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-24 h-24 border border-gold-500 rounded-full"></div>
+          <div className="absolute bottom-1/3 right-1/3 w-16 h-16 border border-sage-300 rounded-full"></div>
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Image */}
+            <div className="relative animate-fade-in">
+              <div className="rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://i.ibb.co/RGm7xsNz/photo-7-2025-08-29-12-03-33.jpg"
+                  alt="Fire ceremony with women in white"
+                  className="w-full h-[400px] object-cover"
+                />
+              </div>
+              <div className="absolute -top-6 -left-6 w-16 h-16 bg-gradient-to-br from-gold-500 to-terracotta-500 rounded-full opacity-80 blur-xl animate-float"></div>
+            </div>
+
+            {/* Content */}
+            <div className="animate-slide-up">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 leading-tight">
+                Fire Ceremony & Blue Lotus Ritual
+              </h2>
+              
+              <div className="space-y-4 text-lg leading-relaxed">
+                <p className="text-gray-200">
+                  In the sacred dance of the four elements—Earth, Air, Fire, and Water—we create a container for profound transformation and healing.
+                </p>
+                
+                <div className="bg-sage-800/50 p-4 rounded-2xl border border-sage-700">
+                  <h3 className="font-serif text-xl font-semibold mb-3 text-gold-400">Sacred Elements</h3>
+                  <ul className="space-y-2">
+                    <li className="flex items-start space-x-3">
+                      <span className="text-gold-400 font-bold">•</span>
+                      <span>Sacred objects placed near the fire to honor ancestral wisdom</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <span className="text-gold-400 font-bold">•</span>
+                      <span>Ancestral connection and inner alchemy practices</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <span className="text-gold-400 font-bold">•</span>
+                      <span>Blue Lotus flower ceremony for enhanced intuition</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <span className="text-gold-400 font-bold">•</span>
+                      <span>Awakening feminine wisdom through sacred rituals</span>
+                    </li>
+                  </ul>
                 </div>
+
+                <p className="text-gray-300 italic">
+                  "Through fire, we release. Through ritual, we remember. Through community, we rise."
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Program Section */}
-      <section id="program" className="py-20 bg-sage-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl lg:text-5xl font-bold text-sage-800 mb-6">
-              Your 3-Day Transformation
+      {/* Instructors Section */}
+      <section className="py-12 px-4 bg-gradient-to-b from-warm-100 to-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-center text-gray-900 mb-10 animate-fade-in">
+            Meet Your Guides
+          </h2>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {instructors.map((instructor, index) => (
+              <div 
+                key={instructor.name}
+                className="animate-slide-up group"
+                style={{animationDelay: `${index * 0.2}s`}}
+              >
+                <div className="bg-white rounded-3xl shadow-xl overflow-hidden transition-transform duration-500 hover:scale-105 h-full flex flex-col">
+                  <div className="h-80 overflow-hidden">
+                    <img 
+                      src={instructor.image}
+                      alt={instructor.name}
+                      className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${
+                        instructor.name === 'Yana' ? 'object-[center_30%]' : 'object-[center_20%]'
+                      }`}
+                    />
+                  </div>
+                  
+                  <div className="p-6 flex-1 flex flex-col">
+                    <h3 className="font-serif text-2xl font-bold text-gray-900 mb-2">
+                      {instructor.name}
+                    </h3>
+                    
+                    <p className="text-sage-600 font-medium mb-3">
+                      {instructor.specialty}
+                    </p>
+                    
+                    <blockquote className="font-serif text-lg italic text-terracotta-600 mb-3 border-l-4 border-gold-500 pl-4">
+                      "{instructor.quote}"
+                    </blockquote>
+                    
+                    <p className="text-gray-700 leading-relaxed text-sm flex-1">
+                      {instructor.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline Section */}
+      <section className="py-12 px-4 bg-warm-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10 animate-fade-in">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              5 Days of Feminine Alchemy
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Each day is carefully crafted to guide you deeper into your feminine essence
+            <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+              Each day unfolds with intention, guiding you deeper into your authentic self
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Day 1 */}
-            <div className={`${isVisible.program ? 'animate-slide-up' : 'opacity-0'} bg-white rounded-2xl shadow-lg overflow-hidden`}>
-              <div className="relative h-64">
-                <img 
-                  src="https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" 
-                  alt="Day 1 activities" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-4 left-4 bg-sage-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                  Day 1
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {schedule.map((item, index) => (
+              <div 
+                key={item.day}
+                className={`group relative bg-white rounded-2xl md:rounded-3xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-slide-up ${
+                  item.activities.some(activity => activity.includes('Fiber art') || activity.includes('BONUS')) 
+                    ? 'ring-2 ring-gold-400 bg-gradient-to-br from-gold-50 to-terracotta-50' 
+                    : ''
+                } ${
+                  index === schedule.length - 1 && schedule.length % 2 === 1 
+                    ? 'lg:col-span-1 md:col-span-2 lg:col-start-2' 
+                    : ''
+                }`}
+                style={{animationDelay: `${index * 0.1}s`}}
+              >
+                {/* Gradient Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-terracotta-50 via-warm-50 to-sage-50 opacity-60"></div>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-3 right-3 w-6 h-6 md:w-8 md:h-8 bg-gradient-to-br from-gold-400 to-terracotta-400 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+                <div className="absolute bottom-3 left-3 w-4 h-4 md:w-6 md:h-6 bg-gradient-to-br from-sage-400 to-terracotta-300 rounded-full opacity-15 group-hover:opacity-30 transition-opacity duration-300"></div>
+                
+                {/* Card Content */}
+                <div className="relative z-10 p-4 md:p-6">
+                  {/* Day Number Badge */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-terracotta-500 to-gold-500 rounded-xl md:rounded-2xl flex items-center justify-center text-white font-bold text-base md:text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      {item.day}
+                    </div>
+                    <div className="text-terracotta-500 group-hover:text-terracotta-600 transition-colors duration-300 group-hover:scale-110 transform text-sm md:text-base">
+                      {item.icon}
+                    </div>
+                  </div>
+                  
+                  {/* Title */}
+                  <h3 className="font-serif text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-terracotta-700 transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="text-xs text-sage-600 font-medium mb-3 md:mb-4 uppercase tracking-wide">
+                    Day {item.day}
+                  </p>
+                  
+                  {/* Mobile: Compact view with collapsible details */}
+                  <div className="md:hidden">
+                    <button 
+                      onClick={() => setExpandedDay(expandedDay === item.day ? null : item.day)}
+                      className="w-full flex items-center justify-between bg-gradient-to-r from-terracotta-100 to-gold-100 hover:from-terracotta-200 hover:to-gold-200 text-terracotta-700 font-medium py-2 px-3 rounded-lg text-sm transition-all duration-300"
+                    >
+                      <span>View Activities</span>
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${expandedDay === item.day ? 'rotate-180' : ''}`} />
+                    </button>
+                    
+                    {expandedDay === item.day && (
+                      <div className="mt-3 space-y-2 animate-fade-in">
+                        {item.activities.map((activity, actIndex) => (
+                          <div key={actIndex} className={`flex items-start space-x-2 ${
+                            activity.includes('Fiber art') || activity.includes('BONUS') 
+                              ? 'font-semibold text-gold-700' 
+                              : ''
+                          }`}>
+                            <div className="w-1.5 h-1.5 bg-gradient-to-r from-terracotta-400 to-gold-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-gray-700 text-sm leading-relaxed">{activity}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Desktop: Show activities directly */}
+                  <div className="hidden md:block space-y-2">
+                    {item.activities.slice(0, 3).map((activity, actIndex) => (
+                      <div key={actIndex} className={`flex items-start space-x-2 ${
+                        activity.includes('Fiber art') || activity.includes('BONUS') 
+                          ? 'font-semibold text-gold-700' 
+                          : ''
+                      }`}>
+                        <div className="w-1.5 h-1.5 bg-gradient-to-r from-terracotta-400 to-gold-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-700 text-sm leading-relaxed">{activity}</span>
+                      </div>
+                    ))}
+                    {item.activities.length > 3 && (
+                      <div className="flex items-center space-x-2 mt-3">
+                        <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+                        <span className="text-gray-500 text-xs italic">
+                          +{item.activities.length - 3} more activities
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Desktop: Hover Effect Button */}
+                  <div className="hidden md:block">
+                    <button 
+                      onClick={() => setExpandedDay(expandedDay === item.day ? null : item.day)}
+                      className="mt-4 w-full bg-gradient-to-r from-terracotta-100 to-gold-100 hover:from-terracotta-200 hover:to-gold-200 text-terracotta-700 font-medium py-2 px-4 rounded-xl text-sm transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0"
+                    >
+                      {expandedDay === item.day ? 'Show Less' : 'View Full Day'}
+                    </button>
+                  </div>
+                </div>
+                
+                {/* Desktop: Expanded Content */}
+                {expandedDay === item.day && (
+                  <div className="relative z-20 bg-white/95 backdrop-blur-sm border-t border-gray-100 p-6 animate-fade-in">
+                    <h4 className="font-serif text-lg font-semibold text-gray-900 mb-3">Complete Day Schedule</h4>
+                    <div className="grid gap-3">
+                      {item.activities.map((activity, actIndex) => (
+                        <div key={actIndex} className={`flex items-start space-x-3 p-2 rounded-lg hover:bg-terracotta-50 transition-colors duration-200 ${
+                          activity.includes('Fiber art') || activity.includes('BONUS') 
+                            ? 'bg-gold-100 font-semibold text-gold-800' 
+                            : ''
+                        }`}>
+                          <div className="w-2 h-2 bg-gradient-to-r from-terracotta-400 to-gold-400 rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-gray-700 text-sm leading-relaxed">{activity}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <button className="bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-4 rounded-full text-base transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl">
+              VIEW FULL PROGRAMME
+            </button>
+            <p className="text-sm text-gray-500 mt-3 hidden md:block">
+              Click on any day card to explore the complete schedule
+            </p>
+            <p className="text-sm text-gray-500 mt-3 md:hidden">
+              Tap "View Activities" to see each day's schedule
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Culinary Section */}
+      <section className="py-12 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Image */}
+            <div className="relative animate-fade-in">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[500px] bg-warm-100">
+                {/* Food gallery grid - fits without scrolling */}
+                <div className="h-full p-4 grid grid-rows-4 gap-3">
+                  <div className="rounded-xl overflow-hidden shadow-lg">
+                    <img 
+                      src="https://i.ibb.co/0RQ8dxks/Create-a-visual-scen.png"
+                      alt="Beautiful dining setup"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  
+                  <div className="rounded-xl overflow-hidden shadow-lg">
+                    <img 
+                      src="https://i.ibb.co/TDSgYw87/image.png"
+                      alt="Healthy meal detail"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  
+                  <div className="rounded-xl overflow-hidden shadow-lg">
+                    <img 
+                      src="https://i.ibb.co/r2W4gDMP/image.png"
+                      alt="Fresh ingredients"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  
+                  <div className="rounded-xl overflow-hidden shadow-lg">
+                    <img 
+                      src="https://i.ibb.co/2wmRf9P/image.png"
+                      alt="Cooking together"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="font-serif text-2xl font-bold text-sage-800 mb-3">
-                  Awakening & Arrival
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Begin your journey with grounding ceremonies and sacred circle introductions.
+              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-gold-400 to-terracotta-400 rounded-full opacity-20 animate-float"></div>
+            </div>
+
+            {/* Content */}
+            <div className="animate-slide-up">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                Nourishment for Body & Soul
+              </h2>
+              
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Every meal is crafted with love and intention, using fresh, local ingredients to nourish your transformation from the inside out.
+              </p>
+
+              <div className="space-y-4">
+                <div className="bg-warm-100 p-4 rounded-2xl">
+                  <h3 className="font-serif text-lg font-semibold text-gray-900 mb-2">
+                    Farm-Fresh Breakfasts
+                  </h3>
+                  <p className="text-gray-700 text-sm">
+                    Start each day with fresh eggs from happy hens, seasonal fruits, and nourishing grains that energize your body for the day's journey.
+                  </p>
+                </div>
+
+                <div className="bg-sage-100 p-4 rounded-2xl">
+                  <h3 className="font-serif text-lg font-semibold text-gray-900 mb-2">
+                    Mediterranean & Ukrainian Fusion
+                  </h3>
+                  <p className="text-gray-700 text-sm">
+                    Experience the warmth of Mediterranean flavors blended with traditional Ukrainian dishes, prepared with ancestral wisdom and modern nutrition.
+                  </p>
+                </div>
+
+                <div className="bg-terracotta-100 p-4 rounded-2xl">
+                  <h3 className="font-serif text-lg font-semibold text-gray-900 mb-2">
+                    Sacred Cooking Circles
+                  </h3>
+                  <p className="text-gray-700 text-sm">
+                    Join your sisters in preparing grape leaves and traditional dishes, creating bonds through the ancient ritual of cooking together.
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-xs text-gray-600 mt-4 italic">
+                All dietary restrictions and allergies are lovingly accommodated with personalized meal planning.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Where You'll Stay Section */}
+      <section className="py-12 px-4 bg-gradient-to-b from-sage-50 to-warm-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10 animate-fade-in">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Where You'll Stay
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">
+              Nestled in nature's embrace, our retreat center offers comfort, beauty, and sacred space for your transformation
+            </p>
+          </div>
+
+          {/* Dining Room Photos */}
+          <div className="mb-12 animate-fade-in">
+            <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-6 text-center">
+              Sacred Dining Spaces
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="https://i.ibb.co/Sw0cwrCC/photo-2025-08-29-00-05-34.jpg"
+                  alt="Beautiful dining room setup"
+                  className="w-full h-64 object-cover hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="https://i.ibb.co/V00mmVPB/photo-2025-08-29-00-05-25.jpg"
+                  alt="Cozy dining atmosphere"
+                  className="w-full h-64 object-cover hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="https://i.ibb.co/BVWtVJg3/photo-2025-08-29-00-05-31.jpg"
+                  alt="Intimate dining setting"
+                  className="w-full h-64 object-cover hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Accommodation & Location */}
+          {/* Hotel Accommodation Photos */}
+          <div className="mb-12 animate-fade-in">
+            <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-6 text-center">
+              Your Comfortable Rooms
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="https://i.ibb.co/bgmkCf05/photo-2025-08-29-17-23-05.jpg"
+                  alt="Comfortable hotel room with natural light"
+                  className="w-full h-64 object-cover hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="https://i.ibb.co/sdj0RC7z/photo-2025-08-29-17-23-03.jpg"
+                  alt="Cozy accommodation space"
+                  className="w-full h-64 object-cover hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="https://i.ibb.co/qM8wR2YD/photo-2025-08-29-17-23-00.jpg"
+                  alt="Peaceful room setting"
+                  className="w-full h-64 object-cover hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Accommodation Info */}
+            <div className="animate-slide-up">
+              <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-6">
+                Comfortable Accommodation
+              </h3>
+              
+              <div className="bg-white rounded-3xl shadow-xl p-6 mb-6">
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-terracotta-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Peaceful Rooms</h4>
+                      <p className="text-gray-700 text-sm">Comfortable twin or double occupancy rooms with natural light and serene views</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-sage-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Modern Amenities</h4>
+                      <p className="text-gray-700 text-sm">Private bathrooms, fresh linens, and all essential comforts for your stay</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-gold-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Nature Connection</h4>
+                      <p className="text-gray-700 text-sm">Surrounded by gardens and natural beauty to enhance your healing journey</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-terracotta-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Sacred Spaces</h4>
+                      <p className="text-gray-700 text-sm">Dedicated areas for meditation, yoga, and quiet reflection</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-terracotta-100 to-gold-100 rounded-2xl p-4">
+                <p className="text-terracotta-800 text-sm italic text-center">
+                  "Every detail has been thoughtfully designed to support your transformation and comfort"
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center space-x-2">
-                    <Sun className="w-4 h-4 text-gold-500" />
-                    <span>Morning meditation & breathwork</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <Heart className="w-4 h-4 text-terracotta-500" />
-                    <span>Heart opening ceremony</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <Users className="w-4 h-4 text-sage-500" />
-                    <span>Sacred sisterhood circle</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <Moon className="w-4 h-4 text-sage-500" />
-                    <span>Evening intention setting</span>
-                  </li>
-                </ul>
               </div>
             </div>
 
-            {/* Day 2 */}
-            <div className={`${isVisible.program ? 'animate-slide-up' : 'opacity-0'} bg-white rounded-2xl shadow-lg overflow-hidden`} style={{ animationDelay: '0.2s' }}>
-              <div className="relative h-64">
-                <img 
-                  src="https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" 
-                  alt="Day 2 activities" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-4 left-4 bg-terracotta-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                  Day 2
+            {/* Location Map */}
+            <div className="animate-fade-in">
+              <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-6">
+                Our Sacred Location
+              </h3>
+              
+              <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+                <div className="h-80 relative">
+                  <img 
+                    src="https://i.ibb.co/93CRqz1Y/Edit-the-uploaded-ma.png"
+                    alt="Retreat location map"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-serif text-2xl font-bold text-sage-800 mb-3">
-                  Embodiment & Expression
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Dive deep into creative expression and embodied movement practices.
-                </p>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center space-x-2">
-                    <Sparkles className="w-4 h-4 text-gold-500" />
-                    <span>Creative art therapy session</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <Heart className="w-4 h-4 text-terracotta-500" />
-                    <span>Sacred dance & movement</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <Leaf className="w-4 h-4 text-sage-500" />
-                    <span>Nature walk & grounding</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <Moon className="w-4 h-4 text-sage-500" />
-                    <span>Fire ceremony & release</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Day 3 */}
-            <div className={`${isVisible.program ? 'animate-slide-up' : 'opacity-0'} bg-white rounded-2xl shadow-lg overflow-hidden`} style={{ animationDelay: '0.4s' }}>
-              <div className="relative h-64">
-                <img 
-                  src="https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" 
-                  alt="Day 3 activities" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-4 left-4 bg-gold-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                  Day 3
+                
+                <div className="p-6">
+                  <h4 className="font-serif text-xl font-semibold text-gray-900 mb-3">
+                    Peaceful Natural Setting
+                  </h4>
+                  <p className="text-gray-700 mb-4 leading-relaxed">
+                    Located in a tranquil natural environment, away from the hustle and bustle of city life, 
+                    our retreat center provides the perfect backdrop for deep inner work and transformation.
+                  </p>
+                  
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-sage-500 rounded-full"></div>
+                      <span className="text-gray-600">Easy access</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-terracotta-500 rounded-full"></div>
+                      <span className="text-gray-600">Natural beauty</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-gold-500 rounded-full"></div>
+                      <span className="text-gray-600">Peaceful setting</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-sage-400 rounded-full"></div>
+                      <span className="text-gray-600">Sacred energy</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-serif text-2xl font-bold text-sage-800 mb-3">
-                  Integration & Empowerment
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Integrate your experiences and step into your empowered feminine self.
-                </p>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center space-x-2">
-                    <Sun className="w-4 h-4 text-gold-500" />
-                    <span>Empowerment ritual</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <Sparkles className="w-4 h-4 text-gold-500" />
-                    <span>Vision board creation</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <Users className="w-4 h-4 text-sage-500" />
-                    <span>Closing circle & commitments</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <Heart className="w-4 h-4 text-terracotta-500" />
-                    <span>Celebration feast</span>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Location Section */}
-      <section id="location" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className={`${isVisible.location ? 'animate-fade-in' : 'opacity-0'}`}>
-              <img 
-                src="https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" 
-                alt="Retreat location" 
-                className="rounded-2xl shadow-2xl w-full h-[500px] object-cover"
-              />
+      {/* Pricing Section */}
+      <section className="py-12 px-4 bg-gradient-to-b from-terracotta-50 to-gold-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-fade-in">
+            Your Transformation Includes
+          </h2>
+
+          <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-8 animate-slide-up">
+            <div className="text-center mb-8">
+              <div className="inline-block bg-gradient-to-r from-terracotta-500 to-gold-500 text-transparent bg-clip-text">
+                <span className="font-serif text-5xl md:text-6xl font-bold">$1,500</span>
+              </div>
+              <p className="text-lg text-gray-600 mt-2">for 5 transformative days</p>
+              <p className="text-sm text-gray-500">accommodation & meals included</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-3 mb-8">
+              {inclusions.map((item, index) => (
+                <div 
+                  key={index}
+                  className="flex items-start space-x-2 text-left animate-fade-in"
+                  style={{animationDelay: `${index * 0.1}s`}}
+                >
+                  <Check className="w-4 h-4 text-sage-500 mt-1 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="space-y-3">
+              <button className="w-full bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                RESERVE YOUR SPOT
+              </button>
+              
+              <p className="text-sm text-gray-500">
+                Limited to 12 women for intimate transformation experience
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 grid md:grid-cols-3 gap-6 text-center">
+            <div className="animate-fade-in" style={{animationDelay: '0.2s'}}>
+              <div className="w-12 h-12 bg-sage-500 rounded-full mx-auto mb-3 flex items-center justify-center">
+                <span className="text-white font-bold text-xl">✓</span>
+              </div>
+              <h3 className="font-serif text-lg font-semibold text-gray-900 mb-2">Secure Booking</h3>
+              <p className="text-gray-600 text-sm">Safe and encrypted payment processing</p>
             </div>
             
-            <div className={`${isVisible.location ? 'animate-slide-up' : 'opacity-0'}`}>
-              <h2 className="font-serif text-4xl lg:text-5xl font-bold text-sage-800 mb-6">
-                Sacred Mountain Sanctuary
-              </h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Nestled in the heart of pristine wilderness, our retreat sanctuary offers the perfect backdrop for transformation. Surrounded by ancient trees and flowing streams, this sacred space has been carefully chosen to support your journey of self-discovery.
-              </p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center space-x-3">
-                  <MapPin className="w-6 h-6 text-sage-600" />
-                  <span className="text-gray-700">Blue Ridge Mountains, North Carolina</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Calendar className="w-6 h-6 text-sage-600" />
-                  <span className="text-gray-700">September 15-17, 2024</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Users className="w-6 h-6 text-sage-600" />
-                  <span className="text-gray-700">Limited to 12 sacred sisters</span>
-                </div>
+            <div className="animate-fade-in" style={{animationDelay: '0.4s'}}>
+              <div className="w-12 h-12 bg-gold-500 rounded-full mx-auto mb-3 flex items-center justify-center">
+                <span className="text-white font-bold text-xl">↺</span>
               </div>
-
-              <div className="bg-sage-50 p-6 rounded-xl">
-                <h3 className="font-semibold text-sage-800 mb-3">What's Included:</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-center space-x-2">
-                    <Star className="w-4 h-4 text-gold-500" />
-                    <span>3 days of transformational workshops</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <Star className="w-4 h-4 text-gold-500" />
-                    <span>All organic, locally-sourced meals</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <Star className="w-4 h-4 text-gold-500" />
-                    <span>Comfortable shared accommodation</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <Star className="w-4 h-4 text-gold-500" />
-                    <span>All materials and sacred tools</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <Star className="w-4 h-4 text-gold-500" />
-                    <span>Lifetime sisterhood connection</span>
-                  </li>
-                </ul>
+              <h3 className="font-serif text-lg font-semibold text-gray-900 mb-2">Flexible Terms</h3>
+              <p className="text-gray-600 text-sm">Compassionate cancellation policy</p>
+            </div>
+            
+            <div className="animate-fade-in" style={{animationDelay: '0.6s'}}>
+              <div className="w-12 h-12 bg-terracotta-500 rounded-full mx-auto mb-3 flex items-center justify-center">
+                <span className="text-white font-bold text-xl">♡</span>
               </div>
+              <h3 className="font-serif text-lg font-semibold text-gray-900 mb-2">Lifetime Support</h3>
+              <p className="text-gray-600 text-sm">Continued guidance after retreat</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Retreat Atmosphere */}
-      <section id="atmosphere" className="py-20 bg-sage-900 text-white">
+      {/* Retreat Atmosphere Section */}
+      <section className="py-20 bg-sage-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-4xl font-serif font-bold text-sage-800 mb-6">
               Retreat Atmosphere
             </h2>
-            <p className="text-xl text-sage-200 max-w-3xl mx-auto">
+            <p className="text-xl text-sage-600 max-w-3xl mx-auto">
+              Glimpse into the sacred spaces where transformation unfolds
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="relative overflow-hidden rounded-2xl shadow-lg group">
+              <img 
+                src="https://i.ibb.co/r2CWXfvq/photo-8-2025-08-29-12-03-33.jpg" 
+                alt="Meditation space" 
+                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-sage-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            
+            <div className="relative overflow-hidden rounded-2xl shadow-lg group">
+              <img 
+                src="https://i.ibb.co/qMrMRzPS/photo-6-2025-08-29-12-03-33.jpg" 
+                alt="Yoga session" 
+                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-sage-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            
+            <div className="relative overflow-hidden rounded-2xl shadow-lg group">
+              <img 
+                src="https://i.ibb.co/RpN7ZjTq/photo-4-2025-08-29-12-03-33.jpg" 
+                alt="Sacred ceremony" 
+                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-sage-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            
+            <div className="relative overflow-hidden rounded-2xl shadow-lg group">
+              <img 
+                src="https://i.ibb.co/spbYZ1PF/photo-3-2025-08-29-12-03-33.jpg" 
+                alt="Nature connection" 
+                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-sage-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-12 px-4 bg-gradient-to-b from-sage-900 to-gray-900 text-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10 animate-fade-in">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
+              Retreat Atmosphere
+            </h2>
+            <p className="text-lg text-gray-300 leading-relaxed">
               Glimpse into the sacred spaces where transformation unfolds
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div className="relative group overflow-hidden rounded-xl">
+          {/* Main Gallery Image */}
+          <div className="mb-8 animate-fade-in">
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
               <img 
-                src="https://i.ibb.co/r2CWXfvq/photo-8-2025-08-29-12-03-33.jpg" 
-                alt="Retreat atmosphere" 
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                src="https://i.ibb.co/W4V5ZR8P/3.png"
+                alt="Sacred fire ceremony atmosphere"
+                className="w-full h-80 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            
-            <div className="relative group overflow-hidden rounded-xl">
+          </div>
+
+          {/* Secondary Images Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div className="rounded-2xl overflow-hidden shadow-lg animate-fade-in">
               <img 
-                src="https://i.ibb.co/qMrMRzPS/photo-6-2025-08-29-12-03-33.jpg" 
-                alt="Sacred ceremony" 
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                src="https://i.ibb.co/F4zxgsRw/photo-5-2025-08-29-12-03-33.jpg"
+                alt="Women in supportive circle"
+                className="w-full h-48 object-cover hover:scale-110 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            
-            <div className="relative group overflow-hidden rounded-xl">
+            <div className="rounded-2xl overflow-hidden shadow-lg animate-fade-in" style={{animationDelay: '0.2s'}}>
               <img 
-                src="https://i.ibb.co/RpN7ZjTq/photo-4-2025-08-29-12-03-33.jpg" 
-                alt="Meditation space" 
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                src="https://i.ibb.co/84nHzHrg/A-warm-intimate-mom.png"
+                alt="Nourishing meals and care"
+                className="w-full h-48 object-cover hover:scale-110 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            
-            <div className="relative group overflow-hidden rounded-xl">
+            <div className="rounded-2xl overflow-hidden shadow-lg animate-fade-in" style={{animationDelay: '0.4s'}}>
               <img 
-                src="https://i.ibb.co/spbYZ1PF/photo-3-2025-08-29-12-03-33.jpg" 
-                alt="Nature connection" 
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                src="https://i.ibb.co/T3HM4t4/image.png"
+                alt="Yana - your guide"
+                className="w-full h-48 object-cover hover:scale-110 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+          </div>
+
+          {/* Testimonial Section */}
+          <div className="mt-12 text-center animate-slide-up">
+            <div className="bg-sage-800/50 rounded-3xl p-6 md:p-8 backdrop-blur-sm border border-sage-700">
+              <blockquote className="font-serif text-xl md:text-2xl italic text-gold-300 mb-4 leading-relaxed">
+                "This retreat didn't just change my life—it gave me back to myself. I found my voice, my power, and my sacred feminine essence."
+              </blockquote>
+              <div className="flex items-center justify-center space-x-3">
+                <img 
+                  src="https://i.ibb.co/T3HM4t4/image.png"
+                  alt="Sarah testimonial"
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+                <div className="text-left">
+                  <p className="text-white font-medium text-sm">Sarah M.</p>
+                  <p className="text-gray-300 text-sm">Previous Retreat Participant</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-sage-50 to-terracotta-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className={`${isVisible.contact ? 'animate-fade-in' : 'opacity-0'}`}>
-            <h2 className="font-serif text-4xl lg:text-5xl font-bold text-sage-800 mb-6">
-              Ready to Begin Your Sacred Journey?
+      <section className="py-12 px-4 bg-gradient-to-b from-warm-100 to-sage-100">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10 animate-fade-in">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Get in Touch
             </h2>
-            <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-              Your transformation awaits. Join us for this life-changing experience and step into your most empowered self.
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Ready to begin your transformation? We're here to guide you every step of the way.
             </p>
-            
-            <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-sage-800 mb-2">$897</div>
-                  <div className="text-gray-600">Early Bird Special</div>
-                  <div className="text-sm text-gray-500 mt-1">Save $200 - Limited Time</div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <div className="animate-slide-up">
+              <form onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-xl p-6">
+                <div className="space-y-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-3 py-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-terracotta-500 focus:border-transparent transition-all duration-200"
+                      placeholder="Enter your beautiful name"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-3 py-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-terracotta-500 focus:border-transparent transition-all duration-200"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                      Your Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows={4}
+                      className="w-full px-3 py-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-terracotta-500 focus:border-transparent transition-all duration-200 resize-none"
+                      placeholder="Share what calls you to this retreat..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-6 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                  >
+                    SEND MESSAGE
+                  </button>
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-400 line-through mb-2">$1,097</div>
-                  <div className="text-gray-600">Regular Price</div>
-                  <div className="text-sm text-gray-500 mt-1">After August 15th</div>
-                </div>
-              </div>
-              
-              <button className="bg-gradient-to-r from-sage-600 to-terracotta-600 hover:from-sage-700 hover:to-terracotta-700 text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg mb-6">
-                Secure Your Sacred Space
-              </button>
-              
-              <p className="text-sm text-gray-600 mb-6">
-                Payment plans available • 100% satisfaction guarantee
-              </p>
+              </form>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-sage-100 rounded-full flex items-center justify-center mb-3">
-                  <Phone className="w-6 h-6 text-sage-600" />
+            {/* Contact Information & Social */}
+            <div className="animate-fade-in">
+              <div className="bg-sage-900 text-white rounded-3xl p-6 h-full flex flex-col justify-between">
+                <div>
+                  <h3 className="font-serif text-xl font-bold mb-4 text-gold-400">
+                    Connect With Us
+                  </h3>
+                  
+                  <p className="text-gray-300 mb-6 leading-relaxed text-sm">
+                    Have questions about the retreat? Want to know if this transformative journey is right for you? We're here to support your decision with love and clarity.
+                  </p>
+
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center space-x-2">
+                      <Mail className="w-4 h-4 text-gold-400" />
+                      <span className="text-gray-300 text-sm">retreat@awakenwithin.com</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Phone className="w-4 h-4 text-gold-400" />
+                      <span className="text-gray-300 text-sm">+1 (555) 123-AWAKEN</span>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-semibold text-sage-800 mb-1">Call Us</h3>
-                <p className="text-gray-600">(555) 123-4567</p>
-              </div>
-              
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-terracotta-100 rounded-full flex items-center justify-center mb-3">
-                  <Mail className="w-6 h-6 text-terracotta-600" />
+
+                <div>
+                  <h4 className="font-medium mb-3 text-gold-400 text-sm">Follow Our Journey</h4>
+                  <div className="flex space-x-3">
+                    {socialLinks.map((social, index) => (
+                      <a
+                        key={index}
+                        href={social.href}
+                        aria-label={social.label}
+                        className="w-10 h-10 bg-sage-800 hover:bg-gold-500 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110"
+                      >
+                        {social.icon}
+                      </a>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="font-semibold text-sage-800 mb-1">Email Us</h3>
-                <p className="text-gray-600">hello@sacredfeminine.com</p>
               </div>
-              
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-gold-100 rounded-full flex items-center justify-center mb-3">
-                  <Instagram className="w-6 h-6 text-gold-600" />
-                </div>
-                <h3 className="font-semibold text-sage-800 mb-1">Follow Us</h3>
-                <p className="text-gray-600">@sacredfeminine</p>
-              </div>
+            </div>
+          </div>
+
+          {/* Final CTA */}
+          <div className="text-center mt-12 animate-slide-up">
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 border border-warm-200">
+              <p className="font-serif text-xl text-gray-800 mb-4 italic">
+                "Your journey back to yourself begins with a single step."
+              </p>
+              <button className="bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105">
+                START YOUR TRANSFORMATION
+              </button>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-sage-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
-                <Flower2 className="w-8 h-8 text-gold-400" />
-                <span className="font-serif text-xl font-semibold">Sacred Feminine Retreat</span>
-              </div>
-              <p className="text-sage-200 mb-4 max-w-md">
-                Empowering women to reconnect with their sacred feminine essence through transformational retreat experiences.
-              </p>
-              <div className="flex space-x-4">
-                <Instagram className="w-6 h-6 text-sage-300 hover:text-gold-400 cursor-pointer transition-colors" />
-                <Facebook className="w-6 h-6 text-sage-300 hover:text-gold-400 cursor-pointer transition-colors" />
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-2 text-sage-200">
-                <li><button onClick={() => scrollToSection('about')} className="hover:text-gold-400 transition-colors">About</button></li>
-                <li><button onClick={() => scrollToSection('program')} className="hover:text-gold-400 transition-colors">Program</button></li>
-                <li><button onClick={() => scrollToSection('location')} className="hover:text-gold-400 transition-colors">Location</button></li>
-                <li><button onClick={() => scrollToSection('contact')} className="hover:text-gold-400 transition-colors">Contact</button></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold mb-4">Contact Info</h3>
-              <ul className="space-y-2 text-sage-200">
-                <li>(555) 123-4567</li>
-                <li>hello@sacredfeminine.com</li>
-                <li>Blue Ridge Mountains, NC</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="border-t border-sage-800 mt-8 pt-8 text-center text-sage-300">
-            <p>&copy; 2024 Sacred Feminine Retreat. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
-};
+}
 
 export default App;
