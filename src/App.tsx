@@ -947,9 +947,81 @@ function App() {
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-sage-800 mb-6">
               Your Transformation Includes
             </h2>
-            <p className="text-base text-gray-200">
-              Glimpse into the sacred spaces where transformation unfolds
+            <p className="text-xl text-sage-700 max-w-3xl mx-auto leading-relaxed">
+              Immerse yourself in a sanctuary of growth and connection
             </p>
+          </div>
+
+          {/* Image Carousel */}
+          <div className="relative mb-12">
+            <div className="overflow-hidden rounded-2xl shadow-2xl">
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+              >
+                {atmosphereImages.map((image, index) => (
+                  <div key={index} className="w-full flex-shrink-0">
+                    <img
+                      src={image.url}
+                      alt={image.alt}
+                      className="w-full h-96 md:h-[500px] object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevImage}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-sage-700 p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={nextImage}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-sage-700 p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+            
+            {/* Image Counter */}
+            <div className="absolute bottom-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+              {currentImageIndex + 1} / {atmosphereImages.length}
+            </div>
+          </div>
+
+          {/* Thumbnail Navigation */}
+          <div className="flex justify-center space-x-2 mb-12">
+            {atmosphereImages.map((image, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImageIndex(index)}
+                className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
+                  currentImageIndex === index 
+                    ? 'border-terracotta-500 scale-110' 
+                    : 'border-transparent hover:border-sage-300'
+                }`}
+              >
+                <img
+                  src={image.url}
+                  alt={image.alt}
+                  className="w-full h-full object-cover"
+                />
+              </button>
+            ))}
+          </div>
+
+          {/* Testimonial */}
+          <div className="bg-sage-100/50 rounded-2xl p-8 max-w-4xl mx-auto mb-12">
+            <blockquote className="text-center">
+              <p className="text-xl md:text-2xl font-serif italic text-sage-800 mb-6">
+                "This retreat gave me back to myself. I found my voice and my sacred feminine essence."
+              </p>
+              <footer className="text-sage-600 font-medium">
+                — Sarah M., Previous Participant
+              </footer>
+            </blockquote>
           </div>
 
           {/* Photo Carousel */}
