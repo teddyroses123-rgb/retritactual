@@ -1023,17 +1023,6 @@ function App() {
                 title: "Queen Mindset",
                 description: "Develop unshakeable confidence and step into your power as the queen of your life"
 
-            ].map((item, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-sage-100">
-                <div className="w-16 h-16 bg-gradient-to-br from-terracotta-400 to-terracotta-600 rounded-full flex items-center justify-center mb-6">
-                  <item.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-serif font-semibold text-sage-800 mb-4">{item.title}</h3>
-                <p className="text-sage-600 leading-relaxed">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
     </div>
   );
