@@ -1,20 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Heart, 
-  Star, 
-  MapPin, 
-  Calendar, 
-  Users, 
-  Wifi, 
-  Coffee, 
-  Car, 
-  Utensils,
-  Spa,
-  Mountain,
-  Flower2,
-  ChevronLeft,
-  ChevronRight
-} from 'lucide-react';
+import { Heart, Star, MapPin, Calendar, Users, Wifi, Coffee, Car, Utensils, Space as Spa, Mountain, Flower2, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const App = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
