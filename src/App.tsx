@@ -258,11 +258,11 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section className="py-12 px-4 bg-warm-50">
+      <section className="py-12 px-4 bg-warm-50 animate-fade-in">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Text Content */}
-            <div className="animate-slide-up">
+            <div className="animate-slide-up" style={{animationDelay: '0.2s'}}>
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
                 This retreat is for the woman ready to awaken
               </h2>
@@ -287,7 +287,7 @@ function App() {
             </div>
 
             {/* Image */}
-            <div className="relative animate-fade-in">
+            <div className="relative animate-fade-in" style={{animationDelay: '0.4s'}}>
               <div className="rounded-3xl overflow-hidden shadow-2xl h-[500px]">
                 <img 
                   src="https://i.ibb.co/F4zxgsRw/photo-5-2025-08-29-12-03-33.jpg"
@@ -303,7 +303,7 @@ function App() {
       </section>
 
       {/* Fire Ceremony Section */}
-      <section className="py-12 px-4 bg-sage-900 text-white relative overflow-hidden">
+      <section className="py-12 px-4 bg-sage-900 text-white relative overflow-hidden animate-fade-in">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/4 left-1/4 w-24 h-24 border border-gold-500 rounded-full"></div>
@@ -313,7 +313,7 @@ function App() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Image */}
-            <div className="relative animate-fade-in">
+            <div className="relative animate-fade-in" style={{animationDelay: '0.2s'}}>
               <div className="rounded-3xl overflow-hidden shadow-2xl">
                 <img 
                   src="https://i.ibb.co/RGm7xsNz/photo-7-2025-08-29-12-03-33.jpg"
@@ -325,7 +325,7 @@ function App() {
             </div>
 
             {/* Content */}
-            <div className="animate-slide-up">
+            <div className="animate-slide-up" style={{animationDelay: '0.4s'}}>
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 leading-tight">
                 Fire Ceremony & Blue Lotus Ritual
               </h2>
@@ -367,9 +367,9 @@ function App() {
       </section>
 
       {/* Instructors Section */}
-      <section className="py-12 px-4 bg-gradient-to-b from-warm-100 to-white">
+      <section className="py-12 px-4 bg-gradient-to-b from-warm-100 to-white animate-fade-in">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-center text-gray-900 mb-10 animate-fade-in">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-center text-gray-900 mb-10 animate-slide-up">
             Meet Your Guides
           </h2>
 
@@ -378,7 +378,7 @@ function App() {
               <div 
                 key={instructor.name}
                 className="animate-slide-up group"
-                style={{animationDelay: `${index * 0.2}s`}}
+                style={{animationDelay: `${0.2 + index * 0.3}s`}}
               >
                 <div className="bg-white rounded-3xl shadow-xl overflow-hidden transition-transform duration-500 hover:scale-105 h-full flex flex-col">
                   <div className="h-80 overflow-hidden">
@@ -416,9 +416,9 @@ function App() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-12 px-4 bg-warm-50">
+      <section className="py-12 px-4 bg-warm-50 animate-fade-in">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10 animate-fade-in">
+          <div className="text-center mb-10 animate-slide-up">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-800 mb-4">
               5 Days of Feminine Alchemy
             </h2>
@@ -440,7 +440,7 @@ function App() {
                     ? 'lg:col-span-1 md:col-span-2 lg:col-start-2' 
                     : ''
                 }`}
-                style={{animationDelay: `${index * 0.1}s`}}
+                style={{animationDelay: `${0.2 + index * 0.1}s`}}
               >
                 {/* Gradient Background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-terracotta-50 via-warm-50 to-sage-50 opacity-60"></div>
@@ -552,7 +552,7 @@ function App() {
           </div>
 
           <div className="text-center mt-12">
-            <button className="bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-4 rounded-full text-base transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl">
+            <button className="bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-4 rounded-full text-base transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl animate-fade-in" style={{animationDelay: '1s'}}>
               VIEW FULL PROGRAMME
             </button>
             <p className="text-sm text-gray-500 mt-3 hidden md:block">
@@ -566,11 +566,11 @@ function App() {
       </section>
 
       {/* Culinary Section */}
-      <section className="py-12 px-4 bg-white">
+      <section className="py-12 px-4 bg-white animate-fade-in">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Image */}
-            <div className="relative animate-fade-in">
+            <div className="relative animate-fade-in" style={{animationDelay: '0.2s'}}>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[500px] bg-warm-100">
                 {/* Food gallery grid - fits without scrolling */}
                 <div className="h-full p-4 grid grid-rows-4 gap-3">
@@ -611,7 +611,7 @@ function App() {
             </div>
 
             {/* Content */}
-            <div className="animate-slide-up">
+            <div className="animate-slide-up" style={{animationDelay: '0.4s'}}>
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
                 Nourishment for Body & Soul
               </h2>
@@ -658,9 +658,9 @@ function App() {
       </section>
 
       {/* Where You'll Stay Section */}
-      <section className="py-12 px-4 bg-gradient-to-b from-sage-50 to-warm-50">
+      <section className="py-12 px-4 bg-gradient-to-b from-sage-50 to-warm-50 animate-fade-in">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10 animate-fade-in">
+          <div className="text-center mb-10 animate-slide-up">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Where You'll Stay
             </h2>
@@ -670,7 +670,7 @@ function App() {
           </div>
 
           {/* Dining Room Photos */}
-          <div className="mb-12 animate-fade-in">
+          <div className="mb-12 animate-slide-up" style={{animationDelay: '0.2s'}}>
             <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-6 text-center">
               Sacred Dining Spaces
             </h3>
@@ -700,7 +700,7 @@ function App() {
           </div>
 
           {/* Hotel Accommodation Photos */}
-          <div className="mb-12 animate-fade-in">
+          <div className="mb-12 animate-slide-up" style={{animationDelay: '0.4s'}}>
             <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-6 text-center">
               Your Comfortable Rooms
             </h3>
@@ -731,7 +731,7 @@ function App() {
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Accommodation Info */}
-            <div className="animate-slide-up">
+            <div className="animate-slide-up" style={{animationDelay: '0.6s'}}>
               <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-6">
                 Comfortable Accommodation
               </h3>
@@ -766,7 +766,7 @@ function App() {
             </div>
 
             {/* Location Info */}
-            <div className="animate-fade-in">
+            <div className="animate-fade-in" style={{animationDelay: '0.8s'}}>
               <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-6">
                 Beautiful Location
               </h3>
@@ -799,13 +799,13 @@ function App() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-12 px-4 bg-gradient-to-b from-terracotta-50 to-gold-50">
+      <section className="py-12 px-4 bg-gradient-to-b from-terracotta-50 to-gold-50 animate-fade-in">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-fade-in">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-slide-up">
             Your Transformation Includes
           </h2>
 
-          <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-8 animate-slide-up">
+          <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-8 animate-slide-up" style={{animationDelay: '0.2s'}}>
             <div className="text-center mb-8">
               <div className="inline-block bg-gradient-to-r from-terracotta-500 to-gold-500 text-transparent bg-clip-text">
                 <span className="font-serif text-5xl md:text-6xl font-bold">$1,500</span>
@@ -819,7 +819,7 @@ function App() {
                 <div 
                   key={index}
                   className="flex items-start space-x-2 text-left animate-fade-in"
-                  style={{animationDelay: `${index * 0.1}s`}}
+                  style={{animationDelay: `${0.4 + index * 0.05}s`}}
                 >
                   <Check className="w-4 h-4 text-sage-500 mt-1 flex-shrink-0" />
                   <span className="text-gray-700 text-sm">{item}</span>
@@ -839,7 +839,7 @@ function App() {
           </div>
 
           <div className="mt-8 grid md:grid-cols-3 gap-6 text-center">
-            <div className="animate-fade-in" style={{animationDelay: '0.2s'}}>
+            <div className="animate-fade-in" style={{animationDelay: '0.8s'}}>
               <div className="w-12 h-12 bg-sage-500 rounded-full mx-auto mb-3 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">✓</span>
               </div>
@@ -847,7 +847,7 @@ function App() {
               <p className="text-gray-600 text-sm">Safe and encrypted payment processing</p>
             </div>
             
-            <div className="animate-fade-in" style={{animationDelay: '0.4s'}}>
+            <div className="animate-fade-in" style={{animationDelay: '1s'}}>
               <div className="w-12 h-12 bg-gold-500 rounded-full mx-auto mb-3 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">↺</span>
               </div>
@@ -855,7 +855,7 @@ function App() {
               <p className="text-gray-600 text-sm">Compassionate cancellation policy</p>
             </div>
             
-            <div className="animate-fade-in" style={{animationDelay: '0.6s'}}>
+            <div className="animate-fade-in" style={{animationDelay: '1.2s'}}>
               <div className="w-12 h-12 bg-terracotta-500 rounded-full mx-auto mb-3 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">♡</span>
               </div>
@@ -867,9 +867,9 @@ function App() {
       </section>
 
       {/* Retreat Atmosphere Section */}
-      <section className="py-8 px-4 bg-sage-900 text-white">
+      <section className="py-8 px-4 bg-sage-900 text-white animate-fade-in">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 animate-slide-up">
             <h2 className="font-serif text-2xl md:text-3xl font-bold mb-3">
               Retreat Atmosphere
             </h2>
@@ -882,7 +882,7 @@ function App() {
           <PhotoCarousel />
 
           {/* Testimonial */}
-          <div className="text-center mt-8">
+          <div className="text-center mt-8 animate-fade-in" style={{animationDelay: '0.4s'}}>
             <div className="bg-sage-800/50 rounded-xl p-6 max-w-3xl mx-auto">
               <p className="font-serif text-base italic text-gold-200 mb-3">
                 "This retreat gave me back to myself. I found my voice and my sacred feminine essence."
@@ -894,9 +894,9 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-12 px-4 bg-gradient-to-b from-warm-100 to-sage-100">
+      <section className="py-12 px-4 bg-gradient-to-b from-warm-100 to-sage-100 animate-fade-in">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10 animate-fade-in">
+          <div className="text-center mb-10 animate-slide-up">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Get in Touch
             </h2>
@@ -907,7 +907,7 @@ function App() {
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="animate-slide-up">
+            <div className="animate-slide-up" style={{animationDelay: '0.2s'}}>
               <form onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-xl p-6">
                 <div className="space-y-4">
                   <div>
@@ -969,7 +969,7 @@ function App() {
             </div>
 
             {/* Contact Information & Social */}
-            <div className="animate-fade-in">
+            <div className="animate-fade-in" style={{animationDelay: '0.4s'}}>
               <div className="bg-sage-900 text-white rounded-3xl p-6 h-full flex flex-col justify-between">
                 <div>
                   <h3 className="font-serif text-xl font-bold mb-4 text-gold-400">
@@ -1012,7 +1012,7 @@ function App() {
           </div>
 
           {/* Final CTA */}
-          <div className="text-center mt-12 animate-slide-up">
+          <div className="text-center mt-12 animate-slide-up" style={{animationDelay: '0.6s'}}>
             <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 border border-warm-200">
               <p className="font-serif text-xl text-gray-800 mb-4 italic">
                 "Your journey back to yourself begins with a single step."
