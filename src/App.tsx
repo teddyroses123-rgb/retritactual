@@ -4,6 +4,14 @@ import { Flame, Leaf, Droplets, Heart, ChevronDown, ChevronRight, Check, Instagr
 function App() {
   // Функция для прокрутки к секции оплаты
   const scrollToPayment = () => {
+    const paymentSection = document.getElementById('payment-section');
+    if (paymentSection) {
+      paymentSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
 
   const atmosphereImages = [
     'https://images.pexels.com/photos/3184293/pexels-photo-3184293.jpeg?auto=compress&cs=tinysrgb&h=800',
@@ -14,26 +22,6 @@ function App() {
     'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&h=800',
     'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&h=800'
   ];
-    const paymentSection = document.getElementById('payment-section');
-  const atmosphereImages = [
-    'https://images.pexels.com/photos/3184293/pexels-photo-3184293.jpeg?auto=compress&cs=tinysrgb&h=800',
-    'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&h=800',
-    'https://images.pexels.com/photos/3184288/pexels-photo-3184288.jpeg?auto=compress&cs=tinysrgb&h=800',
-  ];
-
-
-  // Define atmosphere images for the carousel
-  const atmosphereImages = [
-    'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/3184293/pexels-photo-3184293.jpeg?auto=compress&cs=tinysrgb&w=800',
-    if (paymentSection) {
-      paymentSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
 
   const [expandedDay, setExpandedDay] = React.useState<number | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
