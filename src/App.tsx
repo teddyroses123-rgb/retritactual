@@ -61,15 +61,15 @@ function App() {
   ];
 
   const PhotoCarousel = () => {
-    return (
-      <div className="animate-fade-in">
+      {/* Retreat Atmosphere */}
+      <section className="py-20 bg-gradient-to-br from-warm-50 to-sage-50">
         {/* Main Carousel Image */}
         <div className="relative mb-6">
-          <div className="rounded-2xl overflow-hidden shadow-2xl h-64 md:h-80 lg:h-96 bg-sage-800">
-            <img 
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-terracotta-700 mb-6">
+              Retreat Atmosphere
               src={retreatPhotos[currentImageIndex].url}
               alt={retreatPhotos[currentImageIndex].alt}
-              className="w-full h-full object-cover transition-all duration-500"
+              Immerse yourself in a sanctuary of growth and connection
             />
           </div>
           
@@ -381,47 +381,53 @@ function App() {
       <section className="py-12 px-4 bg-gradient-to-b from-warm-100 to-white animate-fade-in">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-center text-gray-900 mb-10 animate-slide-up">
-            Meet Your Guides
-          </h2>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            {instructors.map((instructor, index) => (
-              <div 
-                key={instructor.name}
-                className="animate-slide-up group"
-                style={{animationDelay: `${0.2 + index * 0.3}s`}}
-              >
-                <div className="bg-white rounded-3xl shadow-xl overflow-hidden transition-transform duration-500 hover:scale-105 h-full flex flex-col">
-                  <div className="h-80 overflow-hidden">
-                    <img 
-                      src={instructor.image}
-                      alt={instructor.name}
-                      className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${
-                        instructor.name === 'Yana' ? 'object-[center_30%]' : 'object-[center_20%]'
-                      }`}
-                    />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-sage-400 to-sage-600 rounded-full flex items-center justify-center mr-4">
+                    <Leaf className="w-6 h-6 text-white" />
                   </div>
-                  
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="font-serif text-2xl font-bold text-gray-900 mb-2">
-                      {instructor.name}
-                    </h3>
-                    
-                    <p className="text-sage-600 font-medium mb-3">
-                      {instructor.specialty}
-                    </p>
-                    
-                    <blockquote className="font-serif text-lg italic text-terracotta-600 mb-3 border-l-4 border-gold-500 pl-4">
-                      "{instructor.quote}"
-                    </blockquote>
-                    
-                    <p className="text-gray-700 leading-relaxed text-sm flex-1">
-                      {instructor.description}
-                    </p>
-                  </div>
+                  <h3 className="text-2xl font-serif font-semibold text-sage-800">Sacred Space</h3>
                 </div>
+                <p className="text-sage-600 leading-relaxed">
+                  Our retreat center is nestled in nature's embrace, providing the perfect sanctuary for deep inner work and transformation.
+                </p>
               </div>
-            ))}
+              
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-terracotta-400 to-terracotta-600 rounded-full flex items-center justify-center mr-4">
+                    <Heart className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-serif font-semibold text-sage-800">Nurturing Environment</h3>
+                </div>
+                <p className="text-sage-600 leading-relaxed">
+                  Experience unconditional support in a judgment-free zone where vulnerability is celebrated and growth is nurtured.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full flex items-center justify-center mr-4">
+                    <Sparkles className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-serif font-semibold text-sage-800">Transformative Energy</h3>
+                </div>
+                <p className="text-sage-600 leading-relaxed">
+                  Feel the powerful collective energy of women supporting women, creating magic and miracles together.
+                </p>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <img 
+                src="https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                alt="Women in circle meditation" 
+                className="rounded-2xl shadow-2xl w-full h-[600px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-sage-900/20 to-transparent rounded-2xl"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -877,12 +883,12 @@ function App() {
         </div>
       </section>
 
-      {/* Retreat Atmosphere Section */}
-      <section className="py-8 px-4 bg-sage-900 text-white animate-fade-in">
+      {/* Your Transformation Includes */}
+      <section className="py-20 bg-gradient-to-br from-sage-50 to-warm-100">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8 animate-slide-up">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold mb-3">
-              Retreat Atmosphere
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-sage-800 mb-6">
+              Your Transformation Includes
             </h2>
             <p className="text-base text-gray-200">
               Glimpse into the sacred spaces where transformation unfolds
@@ -985,53 +991,47 @@ function App() {
                 <div>
                   <h3 className="font-serif text-xl font-bold mb-4 text-gold-400">
                     Connect With Us
-                  </h3>
-                  
-                  <p className="text-gray-300 mb-6 leading-relaxed text-sm">
-                    Have questions about the retreat? Want to know if this transformative journey is right for you? We're here to support your decision with love and clarity.
-                  </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Heart,
+                title: "Self-Love Mastery",
+                description: "Learn to embrace and celebrate your authentic self with compassion and confidence"
+              },
+              {
+                icon: Users,
+                title: "Sisterhood Circle",
+                description: "Connect with like-minded women in a supportive, judgment-free environment"
+              },
+              {
+                icon: Sparkles,
+                title: "Inner Wisdom Activation",
+                description: "Unlock your intuitive power and learn to trust your inner guidance system"
+              },
+              {
+                icon: Target,
+                title: "Purpose Clarity",
+                description: "Discover your unique gifts and create a clear vision for your empowered future"
+              },
+              {
+                icon: Zap,
+                title: "Energy Alignment",
+                description: "Release limiting beliefs and align with your highest potential through proven techniques"
+              },
+              {
+                icon: Crown,
+                title: "Queen Mindset",
+                description: "Develop unshakeable confidence and step into your power as the queen of your life"
 
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center space-x-2">
-                      <Mail className="w-4 h-4 text-gold-400" />
-                      <span className="text-gray-300 text-sm">retreat@awakenwithin.com</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Phone className="w-4 h-4 text-gold-400" />
-                      <span className="text-gray-300 text-sm">+1 (555) 123-AWAKEN</span>
-                    </div>
-                  </div>
+            ].map((item, index) => (
+              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-sage-100">
+                <div className="w-16 h-16 bg-gradient-to-br from-terracotta-400 to-terracotta-600 rounded-full flex items-center justify-center mb-6">
+                  <item.icon className="w-8 h-8 text-white" />
                 </div>
-
-                <div>
-                  <h4 className="font-medium mb-3 text-gold-400 text-sm">Follow Our Journey</h4>
-                  <div className="flex space-x-3">
-                    {socialLinks.map((social, index) => (
-                      <a
-                        key={index}
-                        href={social.href}
-                        aria-label={social.label}
-                        className="w-10 h-10 bg-sage-800 hover:bg-gold-500 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110"
-                      >
-                        {social.icon}
-                      </a>
-                    ))}
-                  </div>
-                </div>
+                <h3 className="text-2xl font-serif font-semibold text-sage-800 mb-4">{item.title}</h3>
+                <p className="text-sage-600 leading-relaxed">{item.description}</p>
               </div>
-            </div>
-          </div>
-
-          {/* Final CTA */}
-          <div className="text-center mt-12 animate-slide-up" style={{animationDelay: '0.6s'}}>
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 border border-warm-200">
-              <p className="font-serif text-xl text-gray-800 mb-4 italic">
-                "Your journey back to yourself begins with a single step."
-              </p>
-              <button className="bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105">
-                START YOUR TRANSFORMATION
-              </button>
-            </div>
+            ))}
           </div>
         </div>
       </section>
