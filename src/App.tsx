@@ -54,11 +54,6 @@ function App() {
     'https://i.ibb.co/DH0fZVVv/photo-2025-08-29-23-59-36.jpg',
     'https://i.ibb.co/8gZShPwd/photo-2025-08-29-23-59-41.jpg',
     'https://i.ibb.co/YTVPy1w0/photo-2025-08-29-23-59-47.jpg',
-    'https://i.ibb.co/YF5D0X1q/image.png',
-    'https://i.ibb.co/r2LfC1HC/photo-2025-08-29-23-59-33.jpg',
-    'https://i.ibb.co/DH0fZVVv/photo-2025-08-29-23-59-36.jpg',
-    'https://i.ibb.co/8gZShPwd/photo-2025-08-29-23-59-41.jpg',
-    'https://i.ibb.co/YTVPy1w0/photo-2025-08-29-23-59-47.jpg',
     'https://i.ibb.co/YF5D0X1q/image.png'
   ];
 
