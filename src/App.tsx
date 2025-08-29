@@ -5,6 +5,12 @@ function App() {
   // Функция для прокрутки к секции оплаты
   const scrollToPayment = () => {
     const paymentSection = document.getElementById('payment-section');
+  const atmosphereImages = [
+    'https://images.pexels.com/photos/3184293/pexels-photo-3184293.jpeg?auto=compress&cs=tinysrgb&h=800',
+    'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&h=800',
+    'https://images.pexels.com/photos/3184288/pexels-photo-3184288.jpeg?auto=compress&cs=tinysrgb&h=800',
+  ];
+
 
   // Define atmosphere images for the carousel
   const atmosphereImages = [
