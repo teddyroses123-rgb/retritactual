@@ -357,168 +357,170 @@ function App() {
 
   return (
     <div className="min-h-screen bg-warm-50">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-warm-50">
-        {/* Fire Ceremony Background */}
-        <div className="absolute inset-0">
-          {/* Main background image */}
+      <div>
+        {/* Hero Section */}
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-bg"
             style={{
-              backgroundImage: `url('https://i.ibb.co/Ldz215YJ/image.png')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center center'
+              backgroundImage: `url('https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`
             }}
-          />
-          
-          {/* Responsive background adjustments */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
-          
-          {/* Fire glow overlay to enhance the atmosphere */}
-          <div className="absolute inset-0 bg-gradient-radial from-amber-600/20 via-transparent to-transparent"></div>
-          
-          {/* Subtle particles effect */}
-          <div className="absolute inset-0">
-            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-amber-400 rounded-full opacity-60 animate-pulse"></div>
-            <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-orange-300 rounded-full opacity-40 animate-pulse" style={{animationDelay: '1s'}}></div>
-            <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-yellow-400 rounded-full opacity-50 animate-pulse" style={{animationDelay: '2s'}}></div>
-            <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-amber-300 rounded-full opacity-30 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+          >
+            <div className="absolute inset-0 bg-black/40"></div>
           </div>
-        </div>
-        
-        {/* Content */}
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto animate-fade-in">
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-6 tracking-wide text-white drop-shadow-2xl">
-            AWAKEN
-            <br />
-            THE POWERFUL
-            <br />
-            WOMAN WITHIN
-          </h1>
           
-          <p className="text-lg sm:text-xl md:text-2xl font-light mb-12 leading-relaxed text-amber-100/90 drop-shadow-lg max-w-3xl mx-auto">
-            5-Day Retreat in Nature • Feminine Energy • Deep Transformation
-          </p>
-          
-          <button className="bg-amber-600/90 hover:bg-amber-700 backdrop-blur-sm text-white font-semibold px-8 sm:px-12 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-amber-400/30 shadow-lg">
-            BOOK YOUR SPOT
-          </button>
-        </div>
-
-        {/* Floating Elements */}
-        <div className="absolute bottom-6 sm:bottom-12 left-1/2 transform -translate-x-1/2 text-amber-200 animate-float">
-          <div className="w-6 h-10 border-2 border-amber-200 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-amber-200 rounded-full mt-2 animate-pulse"></div>
+          <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+            <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+              Awaken the Powerful Woman Within
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 font-light animate-slide-up">
+              A transformative 3-day retreat in the heart of nature
+            </p>
+            <button className="bg-terracotta-500 hover:bg-terracotta-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 animate-slide-up">
+              Begin Your Journey
+            </button>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* About Section */}
-      <section className="py-12 px-4 bg-warm-50 animate-fade-in">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Text Content */}
-            <div className="animate-slide-up" style={{animationDelay: '0.2s'}}>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-                This retreat is for the woman ready to awaken
+        {/* About Section */}
+        <section className="py-20 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="font-serif text-4xl md:text-5xl text-sage-800 mb-6">
+                  Reconnect with Your Authentic Self
+                </h2>
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  In the sacred space of sisterhood, surrounded by the healing energy of nature, 
+                  you'll embark on a profound journey of self-discovery and empowerment.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  This retreat is designed for women ready to step into their power, 
+                  heal from within, and create lasting transformation in their lives.
+                </p>
+              </div>
+              <div className="relative">
+                <img 
+                  src="https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2" 
+                  alt="Women in nature meditation" 
+                  className="rounded-lg shadow-2xl"
+                />
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-terracotta-200 rounded-full opacity-50 animate-float"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What You'll Experience Section */}
+        <section className="py-20 bg-sage-50">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="font-serif text-4xl md:text-5xl text-sage-800 mb-6">
+                What You'll Experience
               </h2>
-              
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                Step into a sacred space where transformation meets nature's embrace. This retreat is designed for women who feel the call to reconnect with their authentic power, release what no longer serves them, and awaken the feminine wisdom that lies within.
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+                Three days of profound transformation through carefully curated experiences
               </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {features.map((feature, index) => (
-                  <div 
-                    key={index}
-                    className="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/50 transition-colors duration-300"
-                  >
-                    <div className="flex-shrink-0">
-                      {feature.icon}
-                    </div>
-                    <span className="text-gray-800 font-medium">{feature.text}</span>
-                  </div>
-                ))}
-              </div>
             </div>
-
-            {/* Image */}
-            <div className="relative animate-fade-in" style={{animationDelay: '0.4s'}}>
-              <div className="rounded-3xl overflow-hidden shadow-2xl h-[500px]">
-                <img 
-                  src="https://i.ibb.co/F4zxgsRw/photo-5-2025-08-29-12-03-33.jpg"
-                  alt="Women in circle meditation in nature"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gold-500 rounded-full opacity-20 animate-float"></div>
-              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-sage-500 rounded-full opacity-30 animate-float" style={{animationDelay: '1s'}}></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Fire Ceremony Section */}
-      <section className="py-12 px-4 bg-sage-900 text-white relative overflow-hidden animate-fade-in">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-24 h-24 border border-gold-500 rounded-full"></div>
-          <div className="absolute bottom-1/3 right-1/3 w-16 h-16 border border-sage-300 rounded-full"></div>
-        </div>
-
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Image */}
-            <div className="relative animate-fade-in" style={{animationDelay: '0.2s'}}>
-              <div className="rounded-3xl overflow-hidden shadow-2xl">
-                <img 
-                  src="https://i.ibb.co/RGm7xsNz/photo-7-2025-08-29-12-03-33.jpg"
-                  alt="Fire ceremony with women in white"
-                  className="w-full h-[400px] object-cover"
-                />
-              </div>
-              <div className="absolute -top-6 -left-6 w-16 h-16 bg-gradient-to-br from-gold-500 to-terracotta-500 rounded-full opacity-80 blur-xl animate-float"></div>
-            </div>
-
-            {/* Content */}
-            <div className="animate-slide-up" style={{animationDelay: '0.4s'}}>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 leading-tight">
-                Fire Ceremony & Blue Lotus Ritual
-              </h2>
-              
-              <div className="space-y-4 text-lg leading-relaxed">
-                <p className="text-gray-200">
-                  In the sacred dance of the four elements—Earth, Air, Fire, and Water—we create a container for profound transformation and healing.
-                </p>
-                
-                <div className="bg-sage-800/50 p-4 rounded-2xl border border-sage-700">
-                  <h3 className="font-serif text-xl font-semibold mb-3 text-gold-400">Sacred Elements</h3>
-                  <ul className="space-y-2">
-                    <li className="flex items-start space-x-3">
-                      <span className="text-gold-400 font-bold">•</span>
-                      <span>Sacred objects placed near the fire to honor ancestral wisdom</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <span className="text-gold-400 font-bold">•</span>
-                      <span>Ancestral connection and inner alchemy practices</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <span className="text-gold-400 font-bold">•</span>
-                      <span>Blue Lotus flower ceremony for enhanced intuition</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <span className="text-gold-400 font-bold">•</span>
-                      <span>Awakening feminine wisdom through sacred rituals</span>
-                    </li>
-                  </ul>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: Heart,
+                  title: "Sacred Circle Ceremonies",
+                  description: "Connect deeply with yourself and other women in powerful sharing circles that honor your truth and wisdom."
+                },
+                {
+                  icon: Leaf,
+                  title: "Nature Immersion",
+                  description: "Reconnect with the earth through guided forest walks, outdoor meditation, and grounding practices."
+                },
+                {
+                  icon: Sun,
+                  title: "Inner Goddess Awakening",
+                  description: "Rediscover your feminine power through movement, breathwork, and ancient wisdom practices."
+                },
+                {
+                  icon: Star,
+                  title: "Creative Expression",
+                  description: "Unlock your creativity through art, journaling, and intuitive practices that reveal your inner voice."
+                },
+                {
+                  icon: Moon,
+                  title: "Healing Rituals",
+                  description: "Release what no longer serves you through transformative healing ceremonies and energy work."
+                },
+                {
+                  icon: Flower,
+                  title: "Sisterhood Bonds",
+                  description: "Form lasting connections with like-minded women on similar journeys of growth and empowerment."
+                }
+              ].map((experience, index) => (
+                <div key={index} className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <experience.icon className="w-12 h-12 text-terracotta-500 mb-4" />
+                  <h3 className="font-serif text-xl font-semibold text-sage-800 mb-3">
+                    {experience.title}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    {experience.description}
+                  </p>
                 </div>
-
-                <p className="text-gray-300 italic">
-                  "Through fire, we release. Through ritual, we remember. Through community, we rise."
-                </p>
-              </div>
+              ))}
             </div>
           </div>
+        </section>
+
+        {/* Your Guides Section */}
+        <section className="py-20 bg-warm-50">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="font-serif text-4xl md:text-5xl text-sage-800 mb-6">
+                Your Guides
+              </h2>
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+                Meet the experienced facilitators who will support your transformation
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-12">
+              {[
+                {
+                  name: "Elena Rodriguez",
+                  title: "Sacred Feminine Coach & Ceremonialist",
+                  image: "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=2",
+                  bio: "With over 15 years of experience in women's empowerment work, Elena creates safe spaces for profound transformation through ancient wisdom and modern healing practices."
+                },
+                {
+                  name: "Maya Thompson",
+                  title: "Somatic Therapist & Nature Guide",
+                  image: "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=2",
+                  bio: "Maya specializes in body-based healing and nature connection, helping women reconnect with their intuitive wisdom and natural rhythms."
+                }
+              ].map((guide, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  <img 
+                    src={guide.image} 
+                    alt={guide.name}
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="p-8">
+                    <h3 className="font-serif text-2xl font-semibold text-sage-800 mb-2">
+                      {guide.name}
+                    </h3>
+                    <p className="text-terracotta-600 font-medium mb-4">
+                      {guide.title}
+                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                      {guide.bio}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
         </div>
       </section>
 
