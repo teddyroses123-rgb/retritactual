@@ -771,6 +771,17 @@ function App() {
                 Beautiful Location
               </h3>
               
+              {/* Location Map */}
+              <div className="mb-6">
+                <div className="rounded-2xl overflow-hidden shadow-lg">
+                  <img 
+                    src="https://i.ibb.co/93CRqz1Y/Edit-the-uploaded-ma.png"
+                    alt="Retreat location map"
+                    className="w-full h-64 object-cover"
+                  />
+                </div>
+              </div>
+              
               <div className="bg-sage-100 rounded-3xl p-6">
                 <div className="space-y-4">
                   <p className="text-gray-700 leading-relaxed">
