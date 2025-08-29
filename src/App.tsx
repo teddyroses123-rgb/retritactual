@@ -1,29 +1,18 @@
 import React from 'react';
 import { Flame, Leaf, Droplets, Heart, ChevronDown, ChevronRight, Check, Instagram, MessageCircle, Phone, Mail, Sunrise, HeartHandshake, Flower2, Palette, Sparkles } from 'lucide-react';
 
+// Функция для плавной прокрутки к секции оплаты
+const scrollToPayment = () => {
+  const paymentSection = document.getElementById('payment-section');
+  if (paymentSection) {
+    paymentSection.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+};
+
 function App() {
-  // Функция для прокрутки к секции оплаты
-  const scrollToPayment = () => {
-    const paymentSection = document.getElementById('payment-section');
-    if (paymentSection) {
-      paymentSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
-
-  // Функция для плавной прокрутки к секции оплаты
-  const scrollToPayment = () => {
-    const paymentSection = document.getElementById('payment-section');
-    if (paymentSection) {
-      paymentSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
-
   const [expandedDay, setExpandedDay] = React.useState<number | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
   const [formData, setFormData] = React.useState({
@@ -266,7 +255,10 @@ function App() {
             5-Day Retreat in Nature • Feminine Energy • Deep Transformation
           </p>
           
-          <button className="bg-amber-600/90 hover:bg-amber-700 backdrop-blur-sm text-white font-semibold px-8 sm:px-12 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-amber-400/30 shadow-lg">
+          <button 
+            onClick={scrollToPayment}
+            className="bg-amber-600/90 hover:bg-amber-700 backdrop-blur-sm text-white font-semibold px-8 sm:px-12 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-amber-400/30 shadow-lg"
+          >
             BOOK YOUR SPOT
           </button>
         </div>
@@ -574,7 +566,10 @@ function App() {
           </div>
 
           <div className="text-center mt-12">
-            <button className="bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-4 rounded-full text-base transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl animate-fade-in" style={{animationDelay: '1s'}}>
+            <button 
+              onClick={scrollToPayment}
+              className="bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-4 rounded-full text-base transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl animate-fade-in" style={{animationDelay: '1s'}}
+            >
               VIEW FULL PROGRAMME
             </button>
             <p className="text-sm text-gray-500 mt-3 hidden md:block">
@@ -821,7 +816,7 @@ function App() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-12 px-4 bg-gradient-to-b from-terracotta-50 to-gold-50 animate-fade-in">
+      <section id="payment-section" className="py-12 px-4 bg-gradient-to-b from-terracotta-50 to-gold-50 animate-fade-in">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-slide-up">
             Your Transformation Includes
@@ -850,7 +845,10 @@ function App() {
             </div>
 
             <div className="space-y-3">
-              <button className="w-full bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+              <button 
+                onClick={scrollToPayment}
+                className="w-full bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+              >
                 RESERVE YOUR SPOT
               </button>
               
@@ -1039,7 +1037,10 @@ function App() {
               <p className="font-serif text-xl text-gray-800 mb-4 italic">
                 "Your journey back to yourself begins with a single step."
               </p>
-              <button className="bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105">
+              <button 
+                onClick={scrollToPayment}
+                className="bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105"
+              >
                 START YOUR TRANSFORMATION
               </button>
             </div>
