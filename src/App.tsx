@@ -3,6 +3,7 @@ import { Flame, Leaf, Droplets, Heart, ChevronDown, ChevronRight, Check, Instagr
 
 function App() {
   const [expandedDay, setExpandedDay] = React.useState<number | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
   const [formData, setFormData] = React.useState({
     name: '',
     email: '',
@@ -19,6 +20,94 @@ function App() {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const retreatPhotos = [
+    {
+      url: "https://i.ibb.co/r2CWXfvq/photo-8-2025-08-29-12-03-33.jpg",
+      alt: "Sacred retreat space"
+    },
+    {
+      url: "https://i.ibb.co/qMrMRzPS/photo-6-2025-08-29-12-03-33.jpg",
+      alt: "Meditation space"
+    },
+    {
+      url: "https://i.ibb.co/RpN7ZjTq/photo-4-2025-08-29-12-03-33.jpg",
+      alt: "Ceremony preparation"
+    },
+    {
+      url: "https://i.ibb.co/spbYZ1PF/photo-3-2025-08-29-12-03-33.jpg",
+      alt: "Sacred gathering"
+    },
+    {
+      url: "https://i.ibb.co/gbQKNwSF/photo-2-2025-08-29-12-03-33.jpg",
+      alt: "Transformation space"
+    },
+    {
+      url: "https://i.ibb.co/gZK29y4D/photo-1-2025-08-29-12-03-33.jpg",
+      alt: "Sacred ceremony"
+    }
+  ];
+
+  const PhotoCarousel = () => {
+    return (
+      <div className="animate-fade-in">
+        {/* Main Carousel Image */}
+        <div className="relative mb-6">
+          <div className="rounded-2xl overflow-hidden shadow-2xl h-64 md:h-80 lg:h-96 bg-sage-800">
+            <img 
+              src={retreatPhotos[currentImageIndex].url}
+              alt={retreatPhotos[currentImageIndex].alt}
+              className="w-full h-full object-cover transition-all duration-500"
+            />
+          </div>
+          
+          {/* Navigation Arrows */}
+          <button 
+            onClick={() => setCurrentImageIndex(currentImageIndex === 0 ? retreatPhotos.length - 1 : currentImageIndex - 1)}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
+          >
+            <ChevronRight className="w-5 h-5 rotate-180" />
+          </button>
+          
+          <button 
+            onClick={() => setCurrentImageIndex(currentImageIndex === retreatPhotos.length - 1 ? 0 : currentImageIndex + 1)}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+          
+          {/* Image Counter */}
+          <div className="absolute bottom-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+            {currentImageIndex + 1} / {retreatPhotos.length}
+          </div>
+        </div>
+        
+        {/* Thumbnail Navigation */}
+        <div className="grid grid-cols-6 gap-2 md:gap-3">
+          {retreatPhotos.map((photo, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentImageIndex(index)}
+              className={`relative rounded-lg overflow-hidden h-12 md:h-16 transition-all duration-300 ${
+                currentImageIndex === index 
+                  ? 'ring-2 ring-gold-400 scale-105 shadow-lg' 
+                  : 'hover:scale-105 hover:shadow-md opacity-70 hover:opacity-100'
+              }`}
+            >
+              <img 
+                src={photo.url}
+                alt={photo.alt}
+                className="w-full h-full object-cover"
+              />
+              {currentImageIndex === index && (
+                <div className="absolute inset-0 bg-gold-400/20"></div>
+              )}
+            </button>
+          ))}
+        </div>
+      </div>
+    );
   };
 
   const features = [
@@ -778,63 +867,27 @@ function App() {
       </section>
 
       {/* Retreat Atmosphere Section */}
-      <section className="py-6 px-4 bg-sage-900 text-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-4">
-            <h2 className="font-serif text-xl md:text-2xl font-bold mb-2">
+      <section className="py-8 px-4 bg-sage-900 text-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold mb-3">
               Retreat Atmosphere
             </h2>
-            <p className="text-sm text-gray-200">
+            <p className="text-base text-gray-200">
               Glimpse into the sacred spaces where transformation unfolds
             </p>
           </div>
 
-          {/* Compact Photo Gallery */}
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-4">
-            <div className="col-span-2 md:col-span-3">
-              <img 
-                src="https://i.ibb.co/r2CWXfvq/photo-8-2025-08-29-12-03-33.jpg"
-                alt="Sacred retreat space"
-                className="w-full h-24 md:h-32 object-cover rounded-lg"
-              />
-            </div>
-            <div>
-              <img 
-                src="https://i.ibb.co/qMrMRzPS/photo-6-2025-08-29-12-03-33.jpg"
-                alt="Meditation space"
-                className="w-full h-24 md:h-32 object-cover rounded-lg"
-              />
-            </div>
-            <div>
-              <img 
-                src="https://i.ibb.co/RpN7ZjTq/photo-4-2025-08-29-12-03-33.jpg"
-                alt="Ceremony preparation"
-                className="w-full h-24 md:h-32 object-cover rounded-lg"
-              />
-            </div>
-            <div>
-              <img 
-                src="https://i.ibb.co/spbYZ1PF/photo-3-2025-08-29-12-03-33.jpg"
-                alt="Sacred gathering"
-                className="w-full h-24 md:h-32 object-cover rounded-lg"
-              />
-            </div>
-            <div>
-              <img 
-                src="https://i.ibb.co/gbQKNwSF/photo-2-2025-08-29-12-03-33.jpg"
-                alt="Transformation space"
-                className="w-full h-24 md:h-32 object-cover rounded-lg"
-              />
-            </div>
-          </div>
+          {/* Photo Carousel */}
+          <PhotoCarousel />
 
-          {/* Compact Testimonial */}
-          <div className="text-center">
-            <div className="bg-sage-800/50 rounded-xl p-4 max-w-2xl mx-auto">
-              <p className="font-serif text-sm italic text-gold-200 mb-2">
+          {/* Testimonial */}
+          <div className="text-center mt-8">
+            <div className="bg-sage-800/50 rounded-xl p-6 max-w-3xl mx-auto">
+              <p className="font-serif text-base italic text-gold-200 mb-3">
                 "This retreat gave me back to myself. I found my voice and my sacred feminine essence."
               </p>
-              <p className="text-gold-300 text-xs">— Sarah M., Previous Participant</p>
+              <p className="text-gold-300 text-sm">— Sarah M., Previous Participant</p>
             </div>
           </div>
         </div>
