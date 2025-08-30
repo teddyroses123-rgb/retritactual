@@ -718,7 +718,7 @@ function App() {
             <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-6 text-center">
               Your Comfortable Rooms
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
               <div className="rounded-2xl overflow-hidden shadow-lg">
                 <img 
                   src="https://i.ibb.co/bgmkCf05/photo-2025-08-29-17-23-05.jpg"
@@ -737,6 +737,41 @@ function App() {
                 <img 
                   src="https://i.ibb.co/qM8wR2YD/photo-2025-08-29-17-23-00.jpg"
                   alt="Peaceful room setting"
+                  className="w-full h-64 object-cover hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="https://i.ibb.co/YF5D0X1q/image.png"
+                  alt="Comfortable room interior"
+                  className="w-full h-64 object-cover hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="https://i.ibb.co/YTVPy1w0/photo-2025-08-29-23-59-47.jpg"
+                  alt="Cozy bedroom space"
+                  className="w-full h-64 object-cover hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="https://i.ibb.co/8gZShPwd/photo-2025-08-29-23-59-41.jpg"
+                  alt="Living area with seating"
+                  className="w-full h-64 object-cover hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="https://i.ibb.co/DH0fZVVv/photo-2025-08-29-23-59-36.jpg"
+                  alt="Dining area setup"
+                  className="w-full h-64 object-cover hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="https://i.ibb.co/r2LfC1HC/photo-2025-08-29-23-59-33.jpg"
+                  alt="Comfortable accommodation space"
                   className="w-full h-64 object-cover hover:scale-110 transition-transform duration-300"
                 />
               </div>
