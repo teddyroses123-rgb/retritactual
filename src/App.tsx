@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flame, Leaf, Droplets, Heart, ChevronDown, ChevronRight, Check, Instagram, MessageCircle, Phone, Mail, Sunrise, HeartHandshake, Flower2, Palette, Sparkles } from 'lucide-react';
+import { Flame, Leaf, Droplets, Heart, ChevronDown, ChevronRight, Check, Instagram, MessageCircle, Phone, Mail, Sunrise, HeartHandshake, Flower2, Palette, Sparkles, Facebook } from 'lucide-react';
 
 function App() {
   const [expandedDay, setExpandedDay] = React.useState<number | null>(null);
@@ -207,10 +207,24 @@ function App() {
   ];
 
   const socialLinks = [
-    { icon: <Instagram className="w-6 h-6" />, href: "#", label: "Instagram" },
-    { icon: <MessageCircle className="w-6 h-6" />, href: "#", label: "Telegram" },
-    { icon: <Phone className="w-6 h-6" />, href: "#", label: "WhatsApp" },
-    { icon: <Mail className="w-6 h-6" />, href: "#", label: "Email" }
+    { 
+      icon: <Mail className="w-5 h-5" />, 
+      href: "mailto:Irena.levkovich@woolwonders.com", 
+      label: "Email",
+      text: "Irena.levkovich@woolwonders.com"
+    },
+    { 
+      icon: <Instagram className="w-5 h-5" />, 
+      href: "https://www.instagram.com/irena.levkovich?igsh=MTg0Z205cHR6dzRhZw==", 
+      label: "Instagram",
+      text: "@irena.levkovich"
+    },
+    { 
+      icon: <Facebook className="w-5 h-5" />, 
+      href: "https://www.instagram.com/irena.levkovich?igsh=MTg0Z205cHR6dzRhZw==", 
+      label: "Facebook",
+      text: "Irena Levkovich"
+    }
   ];
 
   return (
@@ -921,13 +935,128 @@ function App() {
             </div>
 
             <div className="space-y-3">
-              <button className="w-full bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+              <button 
+                onClick={() => document.getElementById('transformation')?.scrollIntoView({ behavior: 'smooth' })}
+                className="w-full bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+              >
                 RESERVE YOUR SPOT
               </button>
               
               <p className="text-sm text-gray-500">
                 Limited to 12 women for intimate transformation experience
               </p>
+            </div>
+          </div>
+
+          {/* Contact Section Integrated */}
+          <div className="mt-12 bg-white rounded-3xl shadow-2xl p-6 md:p-8 animate-slide-up">
+            <div className="text-center mb-8">
+              <h3 className="font-serif text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                Need help or have questions?
+              </h3>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                We're here for you — just drop us a message.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Contact Form */}
+              <div>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-terracotta-500 focus:border-transparent transition-all duration-200"
+                      placeholder="Enter your beautiful name"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-terracotta-500 focus:border-transparent transition-all duration-200"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                      Your Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows={4}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-terracotta-500 focus:border-transparent transition-all duration-200 resize-none"
+                      placeholder="Share what calls you to this retreat..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-sage-600 to-terracotta-500 hover:from-sage-700 hover:to-terracotta-600 text-white font-semibold px-6 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                  >
+                    SEND MESSAGE
+                  </button>
+                </form>
+              </div>
+
+              {/* Contact Information */}
+              <div className="bg-gradient-to-br from-sage-50 to-terracotta-50 rounded-2xl p-6">
+                <h4 className="font-serif text-xl font-semibold text-gray-900 mb-6 text-center">
+                  Connect With Us
+                </h4>
+                
+                <div className="space-y-4">
+                  {socialLinks.map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-4 p-4 bg-white rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg group"
+                    >
+                      <div className="w-12 h-12 bg-gradient-to-br from-terracotta-500 to-gold-500 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                        {social.icon}
+                      </div>
+                      <div className="flex-1 text-left">
+                        <p className="font-medium text-gray-900 group-hover:text-terracotta-600 transition-colors duration-300">
+                          {social.label}
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          {social.text}
+                        </p>
+                      </div>
+                      <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-terracotta-500 group-hover:translate-x-1 transition-all duration-300" />
+                    </a>
+                  ))}
+                </div>
+                
+                <div className="mt-6 p-4 bg-white/70 rounded-xl border border-warm-200">
+                  <p className="text-sm text-gray-600 text-center italic">
+                    "We respond to every message with love and care. Your journey matters to us."
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -954,127 +1083,6 @@ function App() {
               </div>
               <h3 className="font-serif text-lg font-semibold text-gray-900 mb-2">Lifetime Support</h3>
               <p className="text-gray-600 text-sm">Continued guidance after retreat</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="py-12 px-4 bg-gradient-to-b from-warm-100 to-sage-100">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10 animate-fade-in">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Get in Touch
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Ready to begin your transformation? We're here to guide you every step of the way.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div className="animate-slide-up">
-              <form onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-xl p-6">
-                <div className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-3 py-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-terracotta-500 focus:border-transparent transition-all duration-200"
-                      placeholder="Enter your beautiful name"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-3 py-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-terracotta-500 focus:border-transparent transition-all duration-200"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                      Your Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={4}
-                      className="w-full px-3 py-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-terracotta-500 focus:border-transparent transition-all duration-200 resize-none"
-                      placeholder="Share what calls you to this retreat..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    onClick={() => document.getElementById('transformation')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="w-full bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-6 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
-                  >
-                    SEND MESSAGE
-                  </button>
-                </div>
-              </form>
-            </div>
-
-            {/* Contact Information & Social */}
-            <div className="animate-fade-in">
-              <div className="bg-sage-900 text-white rounded-3xl p-6 h-full flex flex-col justify-between">
-                <div>
-                  <h3 className="font-serif text-xl font-bold mb-4 text-gold-400">
-                    Connect With Us
-                  </h3>
-                  
-                  <p className="text-gray-300 mb-6 leading-relaxed text-sm">
-                    Have questions about the retreat? Want to know if this transformative journey is right for you? We're here to support your decision with love and clarity.
-                  </p>
-
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center space-x-2">
-                      <Mail className="w-4 h-4 text-gold-400" />
-                      <span className="text-gray-300 text-sm">retreat@awakenwithin.com</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Phone className="w-4 h-4 text-gold-400" />
-                      <span className="text-gray-300 text-sm">+1 (555) 123-AWAKEN</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="font-medium mb-3 text-gold-400 text-sm">Follow Our Journey</h4>
-                  <div className="flex space-x-3">
-                    {socialLinks.map((social, index) => (
-                      <a
-                        key={index}
-                        href={social.href}
-                        aria-label={social.label}
-                        className="w-10 h-10 bg-sage-800 hover:bg-gold-500 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110"
-                      >
-                        {social.icon}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
