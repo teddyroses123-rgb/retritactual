@@ -1059,12 +1059,18 @@ function App() {
             </div>
 
             <div className="space-y-3">
-              <button 
-                onClick={() => document.getElementById('transformation')?.scrollIntoView({ behavior: 'smooth' })}
-                className="w-full bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
-              >
-                RESERVE YOUR SPOT
-              </button>
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" className="w-full">
+                <input type="hidden" name="cmd" value="_xclick" />
+                <input type="hidden" name="business" value="Irena.levkovich@woolwonders.com" />
+                <input type="hidden" name="item_name" value="Retreat Booking" />
+                <input type="hidden" name="amount" value="1500.00" />
+                <input type="hidden" name="currency_code" value="USD" />
+                <input 
+                  type="submit" 
+                  value="RESERVE YOUR SPOT - $1,500"
+                  className="w-full bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105 hover:shadow-2xl cursor-pointer border-none"
+                />
+              </form>
               
               <p className="text-sm text-gray-500">
                 Limited to 12 women for intimate transformation experience
