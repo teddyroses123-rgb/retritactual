@@ -461,6 +461,120 @@ function App() {
         </div>
       </section>
 
+      {/* Bonus Section */}
+      <section className="py-16 px-4 bg-gradient-to-b from-gold-50 to-terracotta-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              📸 Bonus Included
+            </h2>
+            <div className="max-w-3xl mx-auto">
+              <p className="text-xl md:text-2xl text-gray-800 leading-relaxed mb-4 font-medium">
+                Every participant receives a free 4-hour professional photoshoot during the retreat.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                Capture your transformation, your joy, and your journey — beautifully and authentically.
+              </p>
+              <p className="text-lg font-semibold text-terracotta-600">
+                No extra cost. Just memories that last.
+              </p>
+            </div>
+          </div>
+
+          {/* Photo Gallery */}
+          <div className="grid md:grid-cols-3 gap-6 animate-slide-up">
+            <div className="group relative overflow-hidden rounded-2xl shadow-xl">
+              <img 
+                src="https://i.ibb.co/wrwyH2B3/photo-2025-08-30-13-49-14.jpg" 
+                alt="Professional photoshoot moment 1"
+                className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="font-medium">Authentic Moments</p>
+                  <p className="text-sm opacity-90">Captured naturally</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-2xl shadow-xl">
+              <img 
+                src="https://i.ibb.co/xtsg85Tb/photo-2025-08-30-13-49-18.jpg" 
+                alt="Professional photoshoot moment 2"
+                className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="font-medium">Your Journey</p>
+                  <p className="text-sm opacity-90">Beautifully documented</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-2xl shadow-xl">
+              <img 
+                src="https://i.ibb.co/FLjQYGQB/photo-2025-08-30-13-49-21.jpg" 
+                alt="Professional photoshoot moment 3"
+                className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="font-medium">Pure Joy</p>
+                  <p className="text-sm opacity-90">Memories forever</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bonus Features */}
+          <div className="mt-12 bg-white rounded-3xl shadow-2xl p-6 md:p-8 animate-slide-up">
+            <h3 className="font-serif text-2xl font-bold text-gray-900 text-center mb-8">
+              What's Included in Your Photoshoot
+            </h3>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-terracotta-500 to-gold-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-2xl">📷</span>
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Professional Photographer</h4>
+                <p className="text-sm text-gray-600">Expert in capturing authentic feminine beauty</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-sage-500 to-terracotta-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-2xl">⏰</span>
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">4 Full Hours</h4>
+                <p className="text-sm text-gray-600">Plenty of time for multiple looks and settings</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-gold-500 to-terracotta-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-2xl">🌿</span>
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Natural Settings</h4>
+                <p className="text-sm text-gray-600">Beautiful outdoor locations and retreat spaces</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-terracotta-500 to-sage-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-2xl">💎</span>
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">High-Res Gallery</h4>
+                <p className="text-sm text-gray-600">All edited photos delivered digitally</p>
+              </div>
+            </div>
+            
+            <div className="mt-8 p-6 bg-gradient-to-r from-sage-100 to-gold-100 rounded-2xl border border-warm-200">
+              <p className="text-center text-gray-700 italic leading-relaxed">
+                "These photos aren't just pictures — they're a celebration of the powerful woman you're becoming."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Timeline Section */}
       <section className="py-12 px-4 bg-warm-50">
         <div className="max-w-6xl mx-auto">
