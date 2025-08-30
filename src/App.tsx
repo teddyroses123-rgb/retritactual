@@ -774,7 +774,7 @@ function App() {
                 Nourishment for Body & Soul
               </h2>
               
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              <p className="text-lg text-white mb-6 leading-relaxed">
                 Every meal is crafted with love and intention, using fresh, local ingredients to nourish your transformation from the inside out.
               </p>
 
