@@ -462,34 +462,45 @@ function App() {
       </section>
 
       {/* Bonus Section */}
-      <section className="py-16 px-4 bg-gradient-to-b from-gold-50 to-terracotta-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+      <section className="py-12 px-4 bg-gradient-to-b from-gold-50 via-terracotta-50 to-sage-50 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-terracotta-400 to-gold-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-sage-400 to-terracotta-400 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-5xl mx-auto relative z-10">
+          {/* Special Badge */}
+          <div className="text-center mb-6 animate-fade-in">
+            <div className="inline-flex items-center bg-gradient-to-r from-terracotta-500 to-gold-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg mb-4">
+              <span className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
+              EXCLUSIVE BONUS
+            </div>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-gray-900 mb-4">
               Bonus Included
             </h2>
-            <div className="max-w-2xl mx-auto">
-              <p className="text-lg md:text-xl text-gray-800 leading-relaxed mb-3 font-medium">
+            <div className="max-w-xl mx-auto">
+              <p className="text-base md:text-lg text-gray-800 leading-relaxed mb-2 font-medium">
                 Every participant receives a free 4-hour professional photoshoot during the retreat.
               </p>
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-3">
+              <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-2">
                 Capture your transformation, your joy, and your journey — beautifully and authentically.
               </p>
-              <p className="text-base md:text-lg font-semibold text-terracotta-600">
+              <p className="text-sm md:text-base font-semibold text-terracotta-600">
                 No extra cost. Just memories that last.
               </p>
             </div>
           </div>
 
           {/* Photo Gallery */}
-          <div className="grid md:grid-cols-3 gap-4 md:gap-6 animate-slide-up">
-            <div className="group relative overflow-hidden rounded-2xl shadow-xl">
+          <div className="grid md:grid-cols-3 gap-3 md:gap-4 animate-slide-up">
+            <div className="group relative overflow-hidden rounded-xl md:rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <img 
                 src="https://i.ibb.co/wrwyH2B3/photo-2025-08-30-13-49-14.jpg" 
                 alt="Professional photoshoot moment 1"
-                className="w-full h-64 md:h-80 object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-56 md:h-72 object-cover object-top transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 text-white">
                   <p className="font-medium">Authentic Moments</p>
                   <p className="text-sm opacity-90">Captured naturally</p>
@@ -497,13 +508,13 @@ function App() {
               </div>
             </div>
 
-            <div className="group relative overflow-hidden rounded-2xl shadow-xl">
+            <div className="group relative overflow-hidden rounded-xl md:rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <img 
                 src="https://i.ibb.co/xtsg85Tb/photo-2025-08-30-13-49-18.jpg" 
                 alt="Professional photoshoot moment 2"
-                className="w-full h-64 md:h-80 object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-56 md:h-72 object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 text-white">
                   <p className="font-medium">Your Journey</p>
                   <p className="text-sm opacity-90">Beautifully documented</p>
@@ -511,18 +522,27 @@ function App() {
               </div>
             </div>
 
-            <div className="group relative overflow-hidden rounded-2xl shadow-xl">
+            <div className="group relative overflow-hidden rounded-xl md:rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <img 
                 src="https://i.ibb.co/FLjQYGQB/photo-2025-08-30-13-49-21.jpg" 
                 alt="Professional photoshoot moment 3"
-                className="w-full h-64 md:h-80 object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-56 md:h-72 object-cover object-top transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 text-white">
                   <p className="font-medium">Pure Joy</p>
                   <p className="text-sm opacity-90">Memories forever</p>
                 </div>
               </div>
+            </div>
+          </div>
+          
+          {/* Emphasis Quote */}
+          <div className="mt-8 text-center animate-slide-up">
+            <div className="inline-block bg-white/80 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-lg border border-terracotta-100">
+              <p className="text-gray-700 italic font-medium">
+                "These photos aren't just pictures — they're a celebration of the powerful woman you're becoming."
+              </p>
             </div>
           </div>
         </div>
