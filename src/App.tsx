@@ -206,7 +206,6 @@ function App() {
   ];
 
   const inclusions = [
-    "5 nights accommodation in nature setting",
     "All daily meals (breakfast, lunch, dinner)",
     "Sacred ceremonies and healing workshops",
     "Yoga and meditation sessions",
