@@ -886,7 +886,7 @@ function App() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-12 px-4 bg-gradient-to-b from-terracotta-50 to-gold-50">
+      <section id="transformation" className="py-12 px-4 bg-gradient-to-b from-terracotta-50 to-gold-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-fade-in">
             Your Transformation Includes
