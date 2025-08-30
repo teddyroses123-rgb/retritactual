@@ -702,9 +702,16 @@ function App() {
       </section>
 
       {/* Culinary Section */}
-      <section className="py-12 px-4 bg-white">
+          <div className="text-center mb-12 animate-fade-in relative z-10">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-6">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-20 w-32 h-32 border border-gold-400 rounded-full"></div>
+            <p className="text-xl text-sage-100 max-w-3xl mx-auto leading-relaxed">
+          <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-sage-400 rounded-full"></div>
+        </div>
+        
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
             {/* Image */}
             <div className="relative animate-fade-in">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[500px] bg-warm-100">
@@ -785,7 +792,7 @@ function App() {
                 </div>
               </div>
 
-              <p className="text-xs text-gray-600 mt-4 italic">
+              <p className="text-sm text-sage-200 italic text-center mt-8">
                 All dietary restrictions and allergies are lovingly accommodated with personalized meal planning.
               </p>
             </div>
@@ -1158,7 +1165,7 @@ function App() {
           <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full animate-fade-in">
             <div className="p-6">
               <div className="text-center mb-6">
-                <h3 className="font-serif text-2xl font-bold text-gray-900 mb-2">
+                <h3 className="font-serif text-xl font-bold text-gray-900 mb-3 group-hover:text-terracotta-600 transition-colors duration-300">
                   Get Programme Details
                 </h3>
                 <p className="text-gray-600">
