@@ -4,6 +4,7 @@ import { Flame, Leaf, Droplets, Heart, ChevronDown, ChevronRight, Check, Instagr
 function App() {
   const [expandedDay, setExpandedDay] = React.useState<number | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+  const [showContactModal, setShowContactModal] = React.useState(false);
   const [formData, setFormData] = React.useState({
     name: '',
     email: '',
@@ -584,16 +585,16 @@ function App() {
 
           <div className="text-center mt-12">
             <button 
-              onClick={() => document.getElementById('transformation')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => setShowContactModal(true)}
               className="bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-4 rounded-full text-base transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
             >
-              VIEW FULL PROGRAMME
+              Learn more about the programme
             </button>
             <p className="text-sm text-gray-500 mt-3 hidden md:block">
-              Click on any day card to explore the complete schedule
+              Get detailed information about our transformative retreat
             </p>
             <p className="text-sm text-gray-500 mt-3 md:hidden">
-              Tap "View Activities" to see each day's schedule
+              Get detailed programme information
             </p>
           </div>
         </div>
@@ -1040,6 +1041,63 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* Contact Modal */}
+      {showContactModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full animate-fade-in">
+            <div className="p-6">
+              <div className="text-center mb-6">
+                <h3 className="font-serif text-2xl font-bold text-gray-900 mb-2">
+                  Get Programme Details
+                </h3>
+                <p className="text-gray-600">
+                  Choose your preferred way to connect with us
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setShowContactModal(false)}
+                    className="flex items-center space-x-4 p-4 bg-gradient-to-r from-sage-50 to-terracotta-50 rounded-xl hover:from-sage-100 hover:to-terracotta-100 transition-all duration-300 transform hover:scale-105 group"
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-br from-terracotta-500 to-gold-500 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                      {social.icon}
+                    </div>
+                    <div className="flex-1 text-left">
+                      <p className="font-semibold text-gray-900 group-hover:text-terracotta-600 transition-colors duration-300">
+                        {social.label}
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        {social.text}
+                      </p>
+                    </div>
+                    <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-terracotta-500 group-hover:translate-x-1 transition-all duration-300" />
+                  </a>
+                ))}
+              </div>
+
+              <div className="mt-6 p-4 bg-gradient-to-r from-sage-100 to-gold-100 rounded-xl">
+                <p className="text-sm text-gray-700 text-center italic">
+                  "We'll send you detailed programme information and answer all your questions with love and care."
+                </p>
+              </div>
+
+              <button
+                onClick={() => setShowContactModal(false)}
+                className="mt-6 w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-2 rounded-xl transition-all duration-300"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
