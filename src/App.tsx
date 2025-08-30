@@ -5,6 +5,7 @@ function App() {
   const [expandedDay, setExpandedDay] = React.useState<number | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
   const [showContactModal, setShowContactModal] = React.useState(false);
+  const [copiedEmail, setCopiedEmail] = React.useState(false);
   const [formData, setFormData] = React.useState({
     name: '',
     email: '',
@@ -14,6 +15,16 @@ function App() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
+  };
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('Irena.levkovich@woolwonders.com');
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -209,22 +220,25 @@ function App() {
 
   const socialLinks = [
     { 
-      icon: <Mail className="w-5 h-5" />, 
-      href: "mailto:Irena.levkovich@woolwonders.com", 
+      icon: <Mail className="w-6 h-6" />, 
+      href: "#", 
       label: "Email",
-      text: "Irena.levkovich@woolwonders.com"
+      text: "Irena.levkovich@woolwonders.com",
+      action: "copy"
     },
     { 
-      icon: <Instagram className="w-5 h-5" />, 
+      icon: <Instagram className="w-6 h-6" />, 
       href: "https://www.instagram.com/irena.levkovich?igsh=MTg0Z205cHR6dzRhZw==", 
       label: "Instagram",
-      text: "@irena.levkovich"
+      text: "@irena.levkovich",
+      action: "link"
     },
     { 
-      icon: <Facebook className="w-5 h-5" />, 
+      icon: <Facebook className="w-6 h-6" />, 
       href: "https://www.facebook.com/irena.levkovich", 
       label: "Facebook",
-      text: "Irena Levkovich"
+      text: "Irena Levkovich",
+      action: "link"
     }
   ];
 
@@ -966,33 +980,42 @@ function App() {
                 Connect With Us
               </h4>
               
-              <div className="space-y-4 mb-8">
+              <div className="space-y-3 md:space-y-4 mb-8">
                 {socialLinks.map((social, index) => (
-                  <a
+                  <div
                     key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-4 p-6 bg-gradient-to-r from-sage-50 to-terracotta-50 rounded-2xl hover:from-sage-100 hover:to-terracotta-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg group"
+                    onClick={social.action === 'copy' ? copyEmail : () => window.open(social.href, '_blank')}
+                    className="flex items-center space-x-3 md:space-x-4 p-4 md:p-6 bg-gradient-to-r from-sage-50 to-terracotta-50 rounded-xl md:rounded-2xl hover:from-sage-100 hover:to-terracotta-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg group cursor-pointer"
                   >
-                    <div className="w-14 h-14 bg-gradient-to-br from-terracotta-500 to-gold-500 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-terracotta-500 to-gold-500 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 shadow-lg flex-shrink-0">
                       {social.icon}
                     </div>
                     <div className="flex-1 text-left">
-                      <p className="font-semibold text-lg text-gray-900 group-hover:text-terracotta-600 transition-colors duration-300">
+                      <p className="font-semibold text-base md:text-lg text-gray-900 group-hover:text-terracotta-600 transition-colors duration-300">
                         {social.label}
+                        {social.action === 'copy' && copiedEmail && (
+                          <span className="ml-2 text-sm text-green-600 font-normal">Copied!</span>
+                        )}
                       </p>
-                      <p className="text-gray-600">
+                      <p className="text-sm md:text-base text-gray-600 break-all">
                         {social.text}
                       </p>
                     </div>
-                    <ChevronRight className="w-6 h-6 text-gray-400 group-hover:text-terracotta-500 group-hover:translate-x-1 transition-all duration-300" />
-                  </a>
+                    <div className="flex-shrink-0">
+                      {social.action === 'copy' ? (
+                        <div className="w-5 h-5 md:w-6 md:h-6 text-gray-400 group-hover:text-terracotta-500 transition-colors duration-300">
+                          📋
+                        </div>
+                      ) : (
+                        <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-gray-400 group-hover:text-terracotta-500 group-hover:translate-x-1 transition-all duration-300" />
+                      )}
+                    </div>
+                  </div>
                 ))}
               </div>
               
-              <div className="p-6 bg-gradient-to-r from-sage-100 to-gold-100 rounded-2xl border border-warm-200">
-                <p className="text-gray-700 text-center italic leading-relaxed">
+              <div className="p-4 md:p-6 bg-gradient-to-r from-sage-100 to-gold-100 rounded-xl md:rounded-2xl border border-warm-200">
+                <p className="text-sm md:text-base text-gray-700 text-center italic leading-relaxed">
                   "We respond to every message with love and care. Your journey matters to us."
                 </p>
               </div>
@@ -1058,11 +1081,9 @@ function App() {
 
               <div className="space-y-3">
                 {socialLinks.map((social, index) => (
-                  <a
+                  <div
                     key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    onClick={social.action === 'copy' ? copyEmail : () => { window.open(social.href, '_blank'); setShowContactModal(false); }}
                     onClick={() => setShowContactModal(false)}
                     className="flex items-center space-x-4 p-4 bg-gradient-to-r from-sage-50 to-terracotta-50 rounded-xl hover:from-sage-100 hover:to-terracotta-100 transition-all duration-300 transform hover:scale-105 group"
                   >
@@ -1072,25 +1093,36 @@ function App() {
                     <div className="flex-1 text-left">
                       <p className="font-semibold text-gray-900 group-hover:text-terracotta-600 transition-colors duration-300">
                         {social.label}
+                        {social.action === 'copy' && copiedEmail && (
+                          <span className="ml-2 text-sm text-green-600 font-normal">Copied!</span>
+                        )}
                       </p>
                       <p className="text-sm text-gray-600">
                         {social.text}
                       </p>
                     </div>
-                    <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-terracotta-500 group-hover:translate-x-1 transition-all duration-300" />
-                  </a>
+                    <div className="flex-shrink-0">
+                      {social.action === 'copy' ? (
+                        <div className="w-6 h-6 text-gray-400 group-hover:text-terracotta-500 transition-colors duration-300">
+                          📋
+                        </div>
+                      ) : (
+                        <ChevronRight className="w-6 h-6 text-gray-400 group-hover:text-terracotta-500 group-hover:translate-x-1 transition-all duration-300" />
+                      )}
+                    </div>
+                  </div>
                 ))}
               </div>
 
-              <div className="mt-6 p-4 bg-gradient-to-r from-sage-100 to-gold-100 rounded-xl">
+              <div className="p-4 bg-gradient-to-r from-sage-100 to-gold-100 rounded-xl border border-warm-200">
                 <p className="text-sm text-gray-700 text-center italic">
-                  "We'll send you detailed programme information and answer all your questions with love and care."
+                  "We'll send you detailed programme information and answer all your questions."
                 </p>
               </div>
 
               <button
                 onClick={() => setShowContactModal(false)}
-                className="mt-6 w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-2 rounded-xl transition-all duration-300"
+                className="mt-4 w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-2 rounded-xl transition-all duration-300"
               >
                 Close
               </button>
