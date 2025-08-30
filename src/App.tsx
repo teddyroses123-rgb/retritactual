@@ -702,15 +702,23 @@ function App() {
       </section>
 
       {/* Culinary Section */}
-          <div className="text-center mb-12 animate-fade-in relative z-10">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-6">
+      <section className="py-12 px-4 bg-sage-900 text-white relative overflow-hidden">
+        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-20 w-32 h-32 border border-gold-400 rounded-full"></div>
-            <p className="text-xl text-sage-100 max-w-3xl mx-auto leading-relaxed">
           <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-sage-400 rounded-full"></div>
         </div>
         
         <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12 animate-fade-in relative z-10">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-6">
+              Nourishment for Body & Soul
+            </h2>
+            <p className="text-xl text-sage-100 max-w-3xl mx-auto leading-relaxed">
+              Every meal is crafted with love and intention, using fresh, local ingredients to nourish your transformation from the inside out.
+            </p>
+          </div>
+          
           <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
             {/* Image */}
             <div className="relative animate-fade-in">
@@ -1178,8 +1186,7 @@ function App() {
                   <div
                     key={index}
                     onClick={social.action === 'copy' ? copyEmail : () => { window.open(social.href, '_blank'); setShowContactModal(false); }}
-                    onClick={() => setShowContactModal(false)}
-                    className="flex items-center space-x-4 p-4 bg-gradient-to-r from-sage-50 to-terracotta-50 rounded-xl hover:from-sage-100 hover:to-terracotta-100 transition-all duration-300 transform hover:scale-105 group"
+                    className="flex items-center space-x-4 p-4 bg-gradient-to-r from-sage-50 to-terracotta-50 rounded-xl hover:from-sage-100 hover:to-terracotta-100 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
                   >
                     <div className="w-12 h-12 bg-gradient-to-br from-terracotta-500 to-gold-500 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                       {social.icon}
@@ -1208,7 +1215,7 @@ function App() {
                 ))}
               </div>
 
-              <div className="p-4 bg-gradient-to-r from-sage-100 to-gold-100 rounded-xl border border-warm-200">
+              <div className="mt-6 p-4 bg-gradient-to-r from-sage-100 to-gold-100 rounded-xl border border-warm-200">
                 <p className="text-sm text-gray-700 text-center italic">
                   "We'll send you detailed programme information and answer all your questions."
                 </p>
