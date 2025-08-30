@@ -714,7 +714,7 @@ function App() {
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-6">
               Nourishment for Body & Soul
             </h2>
-            <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-sage-100 max-w-3xl mx-auto leading-relaxed">
               Every meal is crafted with love and intention, using fresh, local ingredients to nourish your transformation from the inside out.
             </p>
           </div>
@@ -763,6 +763,14 @@ function App() {
 
             {/* Content */}
             <div className="animate-slide-up">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                Nourishment for Body & Soul
+              </h2>
+              
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Every meal is crafted with love and intention, using fresh, local ingredients to nourish your transformation from the inside out.
+              </p>
+
               <div className="space-y-4">
                 <div className="bg-warm-100 p-4 rounded-2xl">
                   <h3 className="font-serif text-lg font-semibold text-gray-900 mb-2">
