@@ -259,6 +259,10 @@ function App() {
           </p>
           
           <button className="bg-amber-600/90 hover:bg-amber-700 backdrop-blur-sm text-white font-semibold px-8 sm:px-12 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-amber-400/30 shadow-lg">
+          <button 
+            onClick={() => document.getElementById('transformation')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-amber-600/90 hover:bg-amber-700 backdrop-blur-sm text-white font-semibold px-8 sm:px-12 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-amber-400/30 shadow-lg"
+          >
             BOOK YOUR SPOT
           </button>
         </div>
@@ -566,7 +570,10 @@ function App() {
           </div>
 
           <div className="text-center mt-12">
-            <button className="bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-4 rounded-full text-base transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl">
+            <button 
+              onClick={() => document.getElementById('transformation')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-8 py-4 rounded-full text-base transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+            >
               VIEW FULL PROGRAMME
             </button>
             <p className="text-sm text-gray-500 mt-3 hidden md:block">
@@ -1020,6 +1027,7 @@ function App() {
 
                   <button
                     type="submit"
+                    onClick={() => document.getElementById('transformation')?.scrollIntoView({ behavior: 'smooth' })}
                     className="w-full bg-gradient-to-r from-terracotta-500 to-gold-500 hover:from-terracotta-600 hover:to-gold-600 text-white font-semibold px-6 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
                   >
                     SEND MESSAGE
@@ -1078,6 +1086,10 @@ function App() {
                 "Your journey back to yourself begins with a single step."
               </p>
               <button className="bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105">
+              <button 
+                onClick={() => document.getElementById('transformation')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold px-8 py-3 rounded-full text-base transition-all duration-300 transform hover:scale-105"
+              >
                 START YOUR TRANSFORMATION
               </button>
             </div>
