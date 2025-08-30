@@ -221,7 +221,7 @@ function App() {
     },
     { 
       icon: <Facebook className="w-5 h-5" />, 
-      href: "https://www.instagram.com/irena.levkovich?igsh=MTg0Z205cHR6dzRhZw==", 
+      href: "https://www.facebook.com/irena.levkovich", 
       label: "Facebook",
       text: "Irena Levkovich"
     }
