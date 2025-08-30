@@ -227,6 +227,13 @@ function App() {
       action: "copy"
     },
     { 
+      icon: <Phone className="w-6 h-6" />, 
+      href: "#", 
+      label: "Phone",
+      text: "+1 (202) 957-5194",
+      action: "copy"
+    },
+    { 
       icon: <Instagram className="w-6 h-6" />, 
       href: "https://www.instagram.com/irena.levkovich?igsh=MTg0Z205cHR6dzRhZw==", 
       label: "Instagram",
